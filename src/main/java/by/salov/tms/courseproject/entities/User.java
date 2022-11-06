@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@AllArgsConstructor
 
 @Entity
 @Table(name = "users")
@@ -19,13 +18,18 @@ public  class User extends People{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
     @Column(nullable = false)
     private Long id;
+
+    @Column(nullable = false)
+    private String password;
+
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_role_id", foreignKey = @ForeignKey(name = "fk_user_role_id"))
     private UserRole userRole;
 
-    public User(String firstName, String secondName, Long id, UserRole userRole) {
+    public User(String firstName, String secondName, String password, Long id, UserRole userRole) {
         super(firstName, secondName);
         this.id = id;
         this.userRole = userRole;
+        this.password = password;
     }
 }

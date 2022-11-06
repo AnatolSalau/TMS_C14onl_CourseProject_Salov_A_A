@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
      id BIGINT NOT NULL PRIMARY KEY,
      first_name   varchar(255) NOT NULL ,
      second_name  varchar(255) NOT NULL ,
+     password  varchar(255) NOT NULL ,
      user_role_id BIGINT NOT NULL,
 
      CONSTRAINT fk_user_role_id
