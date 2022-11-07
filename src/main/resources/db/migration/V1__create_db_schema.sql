@@ -22,3 +22,4 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE SEQUENCE IF NOT EXISTS users_id_seq
     start 1
     increment 1;
+
