@@ -14,12 +14,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@EnableWebSecurity (debug = true)
+@EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(
- prePostEnabled = true,
- securedEnabled = true,
- jsr250Enabled = true
- )
+        prePostEnabled = true,
+        securedEnabled = true,
+        jsr250Enabled = true
+)
 @PropertySource("classpath:url_html.properties")
 public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAdapter {
 
@@ -29,10 +29,13 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
     private String adminUrl;
     @Value("${url.doctor}")
     private String doctorUrl;
-
     @Value("${url.login}")
     private String loginUrl;
+    @Value("${url.perform_login}")
+    private String performLoginUrl;
 
+    @Value("${url.logout}")
+    private String logoutUrl;
 
     @Autowired
     private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
@@ -54,11 +57,11 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/"+ adminUrl +"/**")
+                .antMatchers("/" + adminUrl + "/**")
                 .hasRole(Role.ROLE_ADMIN.getRoleName())
-                .antMatchers("/"+ doctorUrl +"/**")
+                .antMatchers("/" + doctorUrl + "/**")
                 .hasAnyRole(Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
-                .antMatchers("/"+ userUrl +"/**")
+                .antMatchers("/" + userUrl + "/**")
                 .hasAnyRole(Role.ROLE_USER.getRoleName(), Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/**")
                 .permitAll()
@@ -66,6 +69,20 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
                 .formLogin()
                 .permitAll()
                 .loginPage("/" + loginUrl)
-                ;
+                .loginProcessingUrl("/" + performLoginUrl)
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/")
+                .successHandler(authenticationSuccessHandlerImpl)
+                .and()
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandlerImpl)
+                .and()
+                .rememberMe()
+                .and()
+                .logout()
+                .permitAll()
+                .logoutUrl("/" + logoutUrl)
+                .logoutSuccessUrl("/" + loginUrl);
     }
 }

@@ -22,14 +22,14 @@ public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     private final String ACCESS_DENIED_ATTRIBUTE_NAME = "access_denied";
     private final String ACCESS_DENIED_URI_ATTRIBUTE_NAME = "access_denied_uri";
 
-    @Value("${html.access_denied}")
-    private String accessDeniedHtml;
+    @Value("${url.access_denied}")
+    private String accessDeniedUrl;
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
         String requestURI = request.getRequestURI();
         request.getSession().setAttribute(ACCESS_DENIED_ATTRIBUTE_NAME, "true");
         request.getSession().setAttribute(ACCESS_DENIED_URI_ATTRIBUTE_NAME, requestURI);
-        response.sendRedirect(accessDeniedHtml);
+        response.sendRedirect(accessDeniedUrl);
     }
 }

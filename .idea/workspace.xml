@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Spring read urls from properties file">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/logout.html" afterDir="false" />
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Added LoginLogoutController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AccessDeniedHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AccessDeniedHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AuthenticationSuccessHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AuthenticationSuccessHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/url_html.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/url_html.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667928376477</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added LoginLogoutController">
+      <created>1667931243988</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667931243988</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +251,7 @@
     <MESSAGE value="Added UserDetailsImpl" />
     <MESSAGE value="Added UserDetailService" />
     <MESSAGE value="Spring read urls from properties file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring read urls from properties file" />
+    <MESSAGE value="Added LoginLogoutController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added LoginLogoutController" />
   </component>
 </project>

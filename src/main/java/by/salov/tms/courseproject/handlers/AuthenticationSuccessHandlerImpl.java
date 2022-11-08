@@ -18,12 +18,12 @@ import java.util.List;
 @Component
 @PropertySource("classpath:url_html.properties")
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler {
-    @Value("${html.user}")
-    private String userHtml;
-    @Value("${html.admin}")
-    private String adminHtml;
-    @Value("${html.doctor}")
-    private String doctorHtml;
+    @Value("${url.user}")
+    private String userUrl;
+    @Value("${url.admin}")
+    private String adminUrl;
+    @Value("${url.doctor}")
+    private String doctorUrl;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
@@ -37,13 +37,13 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         rolesList.stream().forEach( role -> {
                 try {
                     if (Role.ROLE_USER.toString().equals(role)) {
-                        response.sendRedirect(userHtml);
+                        response.sendRedirect(userUrl);
                     }
                     else if (Role.ROLE_DOCTOR.toString().equals(role)) {
-                        response.sendRedirect(doctorHtml);
+                        response.sendRedirect(doctorUrl);
                     }
                     else  if (Role.ROLE_ADMIN.toString().equals(role)) {
-                        response.sendRedirect(adminHtml);
+                        response.sendRedirect(adminUrl);
                     }
                 } catch (IOException exception) {
                     exception.printStackTrace();
