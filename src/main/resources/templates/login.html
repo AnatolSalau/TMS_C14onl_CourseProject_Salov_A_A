@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns: th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login html</title>
+    <link th:href="@{/styles/default.css}" rel="stylesheet"/>
+    <script type="module" th:src="@{/js/defaultMain.js}"></script>
+</head>
+<body>
+<div id="wrapper">
+    <div class="hello"> Login template</div>
+    <form name="loginForm" th:action="@{/perform-login}" method="post">
+        <fieldset>
+            <div th:if="${param.error}" class="invalidUsernamePassword">
+                Invalid username and password
+            </div>
+            <legend> Введите имя и пароль</legend>
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username"/>
+            <label for="password">Пароль</label>
+            <input type="text" id="password" name="password"/>
+            <label for="remember-me">Запомнить пользователя</label>
+            <input type="checkbox" id="remember-me" name="remember-me">
+            <button type="submit">Войти</button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

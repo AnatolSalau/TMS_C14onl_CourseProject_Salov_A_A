@@ -2,6 +2,7 @@ package by.salov.tms.courseproject.configurations;
 
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.handlers.AccessDeniedHandlerImpl;
+import by.salov.tms.courseproject.handlers.AuthenticationSuccessHandlerImpl;
 import by.salov.tms.courseproject.services.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,12 +30,18 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
     @Value("${url.doctor}")
     private String doctorUrl;
 
+    @Value("${url.login}")
+    private String loginUrl;
+
 
     @Autowired
     private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
 
     @Autowired
     private UserDetailServiceImpl userDetailServiceImpl;
+
+    @Autowired
+    AuthenticationSuccessHandlerImpl authenticationSuccessHandlerImpl;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -56,6 +63,9 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
                 .antMatchers("/**")
                 .permitAll()
                 .and()
-                .formLogin();
+                .formLogin()
+                .permitAll()
+                .loginPage("/" + loginUrl)
+                ;
     }
 }
