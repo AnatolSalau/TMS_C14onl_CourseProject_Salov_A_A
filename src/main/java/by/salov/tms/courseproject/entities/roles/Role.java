@@ -1,7 +1,17 @@
 package by.salov.tms.courseproject.entities.roles;
 
 public enum Role {
-    ROLE_ADMIN,
-    ROLE_DOCTOR,
-    ROLE_USER
+    ROLE_ADMIN("ADMIN"),
+    ROLE_DOCTOR("DOCTOR"),
+    ROLE_USER("USER");
+
+    private String roleName;
+
+    Role(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getRoleName() {
+        return this.roleName;
+    }
 }

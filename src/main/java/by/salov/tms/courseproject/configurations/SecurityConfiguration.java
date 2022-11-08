@@ -1,16 +1,32 @@
 package by.salov.tms.courseproject.configurations;
 
+import by.salov.tms.courseproject.entities.roles.Role;
+import by.salov.tms.courseproject.handlers.AccessDeniedHandlerImpl;
 import by.salov.tms.courseproject.services.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+@EnableWebSecurity (debug = true)
+@EnableGlobalMethodSecurity(
+ prePostEnabled = true,
+ securedEnabled = true,
+ jsr250Enabled = true
+ )
+public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
+
+    @Autowired
+    private UrlHtmlNamesCongiguration.Urls urls;
+
+    @Autowired
+    private UrlHtmlNamesCongiguration.HtmlNames htmlNames;
 
     @Autowired
     private UserDetailServiceImpl userDetailServiceImpl;
@@ -26,12 +42,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/admin/**")
-                .hasRole("ADMIN")
-                .antMatchers("/doctor/**")
-                .hasAnyRole("DOCTOR", "ADMIN")
-                .antMatchers("/user/**")
-                .hasAnyRole("USER", "DOCTOR", "ADMIN")
+                .antMatchers("/"+ urls.ADMIN +"/**")
+                .hasRole(Role.ROLE_ADMIN.getRoleName())
+                .antMatchers("/"+ htmlNames.DOCTOR +"/**")
+                .hasAnyRole(Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
+                .antMatchers("/"+ htmlNames.USER +"/**")
+                .hasAnyRole(Role.ROLE_USER.getRoleName(), Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/**")
                 .permitAll()
                 .and()

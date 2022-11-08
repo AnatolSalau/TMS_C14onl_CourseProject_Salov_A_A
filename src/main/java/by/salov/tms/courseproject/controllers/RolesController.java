@@ -1,5 +1,6 @@
 package by.salov.tms.courseproject.controllers;
 
+import by.salov.tms.courseproject.configurations.UrlHtmlNamesCongiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,19 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/")
 public class RolesController {
 
-    @GetMapping(path = "user")
+    @Autowired
+    UrlHtmlNamesCongiguration.Urls urls;
+
+    @Autowired
+    UrlHtmlNamesCongiguration.HtmlNames htmlNames;
+
+    @GetMapping(urls.USER)
     public String getUserTemplate() {
-        return "user.html";
+        return htmlNames.USER;
     }
 
-    @GetMapping(path = "admin")
+    @GetMapping(urls.ADMIN)
     public String getAdminTemplate() {
-        return "admin.html";
+        return htmlNames.ADMIN;
     }
 
-    @GetMapping(path = "doctor")
+    @GetMapping(urls.DOCTOR)
     public String getDoctorTemplate() {
-        return "doctor.html";
+        return htmlNames.DOCTOR;
     }
 
 }
