@@ -1,34 +1,36 @@
 package by.salov.tms.courseproject.controllers;
 
-import by.salov.tms.courseproject.configurations.UrlHtmlNamesCongiguration;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/")
+@PropertySource("classpath:url_html.properties")
 public class RolesController {
 
-    @Autowired
-    UrlHtmlNamesCongiguration.Urls urls;
+    @Value("${html.user}")
+    private String userHtml;
+    @Value("${html.admin}")
+    private String adminHtml;
+    @Value("${html.doctor}")
+    private String doctorHtml;
 
-    @Autowired
-    UrlHtmlNamesCongiguration.HtmlNames htmlNames;
-
-    @GetMapping(urls.USER)
+    @GetMapping("${url.user}")
     public String getUserTemplate() {
-        return htmlNames.USER;
+        return userHtml;
     }
 
-    @GetMapping(urls.ADMIN)
+    @GetMapping("${url.admin}")
     public String getAdminTemplate() {
-        return htmlNames.ADMIN;
+        return adminHtml;
     }
 
-    @GetMapping(urls.DOCTOR)
+    @GetMapping("${url.doctor}")
     public String getDoctorTemplate() {
-        return htmlNames.DOCTOR;
+        return doctorHtml;
     }
 
 }

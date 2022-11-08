@@ -1,8 +1,8 @@
 package by.salov.tms.courseproject.handlers;
 
-import by.salov.tms.courseproject.configurations.UrlHtmlNamesCongiguration;
 import by.salov.tms.courseproject.entities.roles.Role;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -16,14 +16,14 @@ import java.util.Collection;
 import java.util.List;
 
 @Component
+@PropertySource("classpath:url_html.properties")
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler {
-
-    @Autowired
-    UrlHtmlNamesCongiguration.Urls urls;
-
-    @Autowired
-    UrlHtmlNamesCongiguration.HtmlNames htmlNames;
-
+    @Value("${html.user}")
+    private String userHtml;
+    @Value("${html.admin}")
+    private String adminHtml;
+    @Value("${html.doctor}")
+    private String doctorHtml;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
@@ -37,13 +37,13 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         rolesList.stream().forEach( role -> {
                 try {
                     if (Role.ROLE_USER.toString().equals(role)) {
-                        response.sendRedirect(urls.USER);
+                        response.sendRedirect(userHtml);
                     }
                     else if (Role.ROLE_DOCTOR.toString().equals(role)) {
-                        response.sendRedirect(urls.DOCTOR);
+                        response.sendRedirect(doctorHtml);
                     }
                     else  if (Role.ROLE_ADMIN.toString().equals(role)) {
-                        response.sendRedirect(urls.ADMIN);
+                        response.sendRedirect(adminHtml);
                     }
                 } catch (IOException exception) {
                     exception.printStackTrace();

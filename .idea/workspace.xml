@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Added UserDetailService">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/UrlHtmlNamesCongiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AccessDeniedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AccessDeniedHandlerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AuthenticationSuccessHandlerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/access_denied.html" afterDir="false" />
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Spring Security User template">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/url_html.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/UrlHtmlNamesCongiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AccessDeniedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AccessDeniedController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/RolesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/RolesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UrlsHtmlNamesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AccessDeniedHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AccessDeniedHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AuthenticationSuccessHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/handlers/AuthenticationSuccessHandlerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +29,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Enum" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -77,20 +77,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JavaDevelop/Projects/TMS_C14onl_CourseProject_Salov_A_A/src/main/resources/templates&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;3d04a36fda0a4da85445bf81cfaa7975&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;PostgreSQL&quot;
+    ]
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
       <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources\db\migration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\static\js" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\static\styles" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
@@ -112,13 +130,13 @@
     </configuration>
     <configuration name="TmsC14onlCourseprojectSalovAAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="tms_c14onl_courseproject_salov_a_a.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="by.salov.tms.courseproject.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

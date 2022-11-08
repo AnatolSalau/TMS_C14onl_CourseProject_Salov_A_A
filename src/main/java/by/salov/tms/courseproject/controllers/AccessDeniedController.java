@@ -1,6 +1,5 @@
 package by.salov.tms.courseproject.controllers;
 
-import by.salov.tms.courseproject.configurations.UrlHtmlNamesCongiguration;
 import by.salov.tms.courseproject.handlers.AccessDeniedHandlerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,31 +14,32 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/")
-public class AccessDeniedController extends UrlsHtmlNamesController {
+@PropertySource("classpath:url_html.properties")
+public class AccessDeniedController {
 
     @Autowired
-    AccessDeniedHandlerImpl accessDeniedHandlerImpl;
+    private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
 
-    @Autowired
-    UrlHtmlNamesCongiguration.HtmlNames htmlNames;
+    @Value("${html.login}")
+    private String loginHtml;
 
-    @Autowired
-    UrlHtmlNamesCongiguration.Urls urls;
+    @Value("${html.access_denied}")
+    private String accessDeniedHtml;
 
-
-    @GetMapping(ACCESS_DENIED_URL)
+    @GetMapping("/${url.access_denied}")
     public ModelAndView getAccessDeniedTemplate(HttpServletRequest httpServletRequest) {
         String accessDenied = (String)httpServletRequest
-                .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE());
+                .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE_NAME());
         String accessDeniedUri = (String)httpServletRequest
-                .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_URI_ATTRIBUTE());
+                .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_URI_ATTRIBUTE_NAME());
         if (accessDenied == null) {
-            ModelAndView loginModelAndView = new ModelAndView(htmlNames.LOGIN);
+
+            ModelAndView loginModelAndView = new ModelAndView(loginHtml);
             return loginModelAndView;
         }
-        ModelAndView accessDeniedModelAndView = new ModelAndView(htmlNames.ACCESS_DENIED);
-        accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE(),accessDenied);
-        accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_URI_ATTRIBUTE(),accessDeniedUri);
+        ModelAndView accessDeniedModelAndView = new ModelAndView(accessDeniedHtml);
+        accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE_NAME(),accessDenied);
+        accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_URI_ATTRIBUTE_NAME(),accessDeniedUri);
         return accessDeniedModelAndView;
     }
 }
