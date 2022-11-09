@@ -9,6 +9,10 @@
 <body>
 <div id="wrapper">
   <div class="hello">Test CRUD template</div>
+  <tr th:each="user: ${all}">
+    <td th:text="${user.getId}" />
+    <td th:text="${user.getLogin}" />
+  </tr>
 
 </div>
 </body>

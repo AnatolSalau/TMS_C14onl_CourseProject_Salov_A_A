@@ -1,10 +1,7 @@
 package by.salov.tms.courseproject.entities.roles;
 
 import by.salov.tms.courseproject.entities.User;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -32,5 +29,13 @@ public class UserRole {
     public UserRole ( Long id, Role roleName) {
         this.id = id;
         this.roleName = roleName.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                '}';
     }
 }

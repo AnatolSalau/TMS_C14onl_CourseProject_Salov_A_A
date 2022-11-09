@@ -21,6 +21,4 @@ public class UserDBService  {
         usersMap = all.stream().collect(Collectors.toMap(User::getId, user -> user));
         return usersMap;
     }
-
-
 }
