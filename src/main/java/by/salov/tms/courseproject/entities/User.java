@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode
+@ToString
 
 @Entity
 @Table(name = "users")
@@ -33,14 +34,5 @@ public  class User extends People{
         this.id = id;
         this.userRole = userRole;
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

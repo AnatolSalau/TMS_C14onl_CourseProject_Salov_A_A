@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode
+@ToString
 
 @Entity
 @Table(name = "user_role")
@@ -23,19 +24,12 @@ public class UserRole {
     @Column(name = "role",nullable = false)
     private  String roleName;
 
+    @ToString.Exclude
     @OneToOne(mappedBy = "userRole", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
     private User user;
 
     public UserRole ( Long id, Role roleName) {
         this.id = id;
         this.roleName = roleName.toString();
-    }
-
-    @Override
-    public String toString() {
-        return "UserRole{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                '}';
     }
 }
