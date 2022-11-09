@@ -9,11 +9,17 @@
 <body>
 <div id="wrapper">
   <div class="hello">Test CRUD template</div>
-  <tr th:each="user: ${all}">
-    <td th:text="${user.getId}" />
-    <td th:text="${user.getLogin}" />
+  <div class="hello">For each cycle through list  in thymeleafe</div>
+  <!--For each cycle in thymeleafe-->
+  <tr th:each="user: ${allUsersList}">
+    <td th:text="${user.getId}"></td><br>
+    <td th:text="${user.getLogin}"></td><br>
   </tr>
-
+  <div class="hello">For each cycle through map  in thymeleafe</div>
+  <tr th:each="entry: ${allUserMap}">
+    <td th:text="${entry.key}"></td><br>
+    <td th:text="${entry.value}"></td><br>
+  </tr>
 </div>
 </body>
 </html>

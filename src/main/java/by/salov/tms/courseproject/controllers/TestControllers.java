@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,11 +33,18 @@ public class TestControllers {
     public ModelAndView getTestCrudTemplate() {
         ModelAndView modelAndView = new ModelAndView(testCrudHtml);
 
-/*        Map<Long, User> allUsersMap = userDBService.findAllUsersMap();
-        modelAndView.addObject("all_users_map",allUsersMap);*/
-
+        Map<Long, User> allUsersMap = userDBService.findAllUsersMap();;
         List<User> all = userJpaRepository.findAll();
-        modelAndView.addObject("all", all);
+
+        modelAndView.addObject("allUsersList", all);
+        modelAndView.addObject("allUserMap", allUsersMap);
+
+        return modelAndView;
+    }
+    @PostMapping ("${url.test_crud}")
+    public ModelAndView postTestCrudTemplate() {
+        ModelAndView modelAndView = new ModelAndView(testCrudHtml);
+
         return modelAndView;
     }
 }
