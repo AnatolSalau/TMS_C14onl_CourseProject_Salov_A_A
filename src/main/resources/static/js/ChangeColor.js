@@ -1,12 +1,15 @@
 class ChangeColor {
-    #elementDocument;
 
-    constructor(elementID) {
-        this.#elementDocument = document.getElementById(elementID);
+    changeElementBackgroundColorById(elementID, color) {
+    let elementById = document.getElementById(elementID);
+    elementById.style.backgroundColor = color;
     }
 
-    changeBackgroundColor(color) {
-        this.#elementDocument.style.backgroundColor = color;
+    changeElementsColorByClassName(className, color) {
+        let elementsByClass = document.getElementsByClassName(className);
+        for (let element of elementsByClass) {
+             element.style.color = color;
+        }
     }
 }
 

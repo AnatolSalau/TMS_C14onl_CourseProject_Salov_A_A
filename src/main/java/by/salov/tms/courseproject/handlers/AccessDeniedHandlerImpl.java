@@ -20,16 +20,18 @@ import java.io.IOException;
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
 
     private final String ACCESS_DENIED_ATTRIBUTE_NAME = "access_denied";
-    private final String ACCESS_DENIED_URI_ATTRIBUTE_NAME = "access_denied_uri";
+    private final String ACCESS_DENIED_URL_ATTRIBUTE_NAME = "access_denied_url";
 
     @Value("${url.access_denied}")
     private String accessDeniedUrl;
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-        String requestURI = request.getRequestURI();
+        StringBuffer requestURL = request.getRequestURL();
+        String requestURLString = requestURL.toString();
+        StringBuffer delete = requestURL.delete(22, requestURL.length());
         request.getSession().setAttribute(ACCESS_DENIED_ATTRIBUTE_NAME, "true");
-        request.getSession().setAttribute(ACCESS_DENIED_URI_ATTRIBUTE_NAME, requestURI);
-        response.sendRedirect(accessDeniedUrl);
+        request.getSession().setAttribute(ACCESS_DENIED_URL_ATTRIBUTE_NAME, requestURLString);
+        response.sendRedirect(delete + accessDeniedUrl);
     }
 }

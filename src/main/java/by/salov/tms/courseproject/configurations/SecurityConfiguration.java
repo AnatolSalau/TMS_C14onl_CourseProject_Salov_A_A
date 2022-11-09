@@ -33,9 +33,10 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
     private String loginUrl;
     @Value("${url.perform_login}")
     private String performLoginUrl;
-
     @Value("${url.logout}")
     private String logoutUrl;
+    @Value("${url.test_controller}")
+    private String testControllerUrl;
 
     @Autowired
     private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
@@ -57,7 +58,7 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/" + adminUrl + "/**")
+                .antMatchers("/" + adminUrl + "/**","/" + testControllerUrl + "/**")
                 .hasRole(Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + doctorUrl + "/**")
                 .hasAnyRole(Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())

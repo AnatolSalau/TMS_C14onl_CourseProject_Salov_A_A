@@ -26,12 +26,12 @@ public class AccessDeniedController {
     @Value("${html.access_denied}")
     private String accessDeniedHtml;
 
-    @GetMapping("/${url.access_denied}")
+    @GetMapping("${url.access_denied}")
     public ModelAndView getAccessDeniedTemplate(HttpServletRequest httpServletRequest) {
         String accessDenied = (String)httpServletRequest
                 .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE_NAME());
         String accessDeniedUri = (String)httpServletRequest
-                .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_URI_ATTRIBUTE_NAME());
+                .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_URL_ATTRIBUTE_NAME());
         if (accessDenied == null) {
 
             ModelAndView loginModelAndView = new ModelAndView(loginHtml);
@@ -39,7 +39,7 @@ public class AccessDeniedController {
         }
         ModelAndView accessDeniedModelAndView = new ModelAndView(accessDeniedHtml);
         accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE_NAME(),accessDenied);
-        accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_URI_ATTRIBUTE_NAME(),accessDeniedUri);
+        accessDeniedModelAndView.addObject(accessDeniedHandlerImpl.getACCESS_DENIED_URL_ATTRIBUTE_NAME(),accessDeniedUri);
         return accessDeniedModelAndView;
     }
 }
