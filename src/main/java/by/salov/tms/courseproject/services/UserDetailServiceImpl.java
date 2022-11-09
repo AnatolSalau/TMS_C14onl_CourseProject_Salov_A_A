@@ -1,6 +1,6 @@
 package by.salov.tms.courseproject.services;
 
-import by.salov.tms.courseproject.dao.UserJpaRepository;
+import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
