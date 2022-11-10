@@ -24,9 +24,9 @@ public class UserDBService  {
         return usersMap;
     }
 
-    public User deleteUserById(Long id) {
+    public void deleteUserById(Long id) {
         System.out.println(id);
-        User user = userJpaRepository.deleteUserById(id);
-        return user;
+        userJpaRepository.deleteUserById(id);
+
     }
 }

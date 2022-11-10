@@ -25,7 +25,8 @@ public class UserRole {
     private  String roleName;
 
     @ToString.Exclude
-    @OneToOne(mappedBy = "userRole", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+    @OneToOne(mappedBy = "userRole", cascade = {CascadeType.PERSIST,
+    CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     private User user;
 
     public UserRole ( Long id, Role roleName) {
