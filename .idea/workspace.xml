@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Added LoginLogoutController">
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Access denied">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/TestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/utils/StringUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/TestControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/TestControllers.java" afterDir="false" />
@@ -23,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Enum" />
         <option value="HTML File" />
         <option value="Class" />
       </list>
@@ -71,44 +73,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaDevelop/Projects/TMS_C14onl_CourseProject_Salov_A_A/src/main/resources/templates&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;3d04a36fda0a4da85445bf81cfaa7975&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
-    ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;PostgreSQL&quot;
-    ]
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
       <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources\db\migration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\static\js" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\static\styles" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TestMain">
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="by.salov.tms.courseproject.TestMain" />
+      <module name="tms_c14onl_courseproject_salov_a_a.main" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.salov.tms.courseproject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -124,13 +122,13 @@
     </configuration>
     <configuration name="TmsC14onlCourseprojectSalovAAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="tms_c14onl_courseproject_salov_a_a.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="by.salov.tms.courseproject.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,6 +144,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestMain" />
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
       </list>
     </recent_temporary>
@@ -212,21 +211,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667840236502</updated>
     </task>
-    <task id="LOCAL-00008" summary="Spring read urls from properties file">
-      <created>1667928376477</created>
+    <task id="LOCAL-00008" summary="Added Login Logout pages">
+      <created>1667975631805</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1667928376477</updated>
+      <updated>1667975631805</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added LoginLogoutController">
-      <created>1667931243988</created>
+    <task id="LOCAL-00009" summary="Access denied">
+      <created>1667988088026</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1667931243988</updated>
+      <updated>1667988088026</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Access denied">
+      <created>1667994970559</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667994970559</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,8 +255,8 @@
     <MESSAGE value="Added People -&gt; User&#10;Role -&gt; User Role" />
     <MESSAGE value="Added UserDetailsImpl" />
     <MESSAGE value="Added UserDetailService" />
-    <MESSAGE value="Spring read urls from properties file" />
-    <MESSAGE value="Added LoginLogoutController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added LoginLogoutController" />
+    <MESSAGE value="Added Login Logout pages" />
+    <MESSAGE value="Access denied" />
+    <option name="LAST_COMMIT_MESSAGE" value="Access denied" />
   </component>
 </project>

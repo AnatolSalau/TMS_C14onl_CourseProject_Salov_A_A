@@ -84,6 +84,8 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
                 .logout()
                 .permitAll()
                 .logoutUrl("/" + logoutUrl)
-                .logoutSuccessUrl("/" + loginUrl);
+                .logoutSuccessUrl("/" + loginUrl)
+                .and()
+                .csrf().disable();
     }
 }

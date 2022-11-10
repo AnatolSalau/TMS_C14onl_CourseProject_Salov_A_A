@@ -12,4 +12,6 @@ public interface UserJpaRepository extends JpaRepository<User,Long> {
     Optional<User> findUserByLogin (String login);
 
     List<User> findAll();
+
+    User deleteUserById(Long id);
 }

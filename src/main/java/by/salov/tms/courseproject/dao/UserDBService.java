@@ -21,4 +21,9 @@ public class UserDBService  {
         usersMap = all.stream().collect(Collectors.toMap(User::getId, user -> user));
         return usersMap;
     }
+
+    public User deleteUserById(Long id) {
+        User user = userJpaRepository.deleteUserById(id);
+        return user;
+    }
 }
