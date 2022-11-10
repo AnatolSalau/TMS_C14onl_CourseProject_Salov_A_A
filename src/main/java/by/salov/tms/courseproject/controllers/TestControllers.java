@@ -56,7 +56,8 @@ public class TestControllers {
 
         List<String> trimmedKeys = stringUtils.ifKeyStartWithTrimIt(parameterMap, "deleteUserById-");
         trimmedKeys.forEach(key -> {
-            userDBService.deleteUserById(Long.getLong(key));
+            Long id = Long.parseLong(key);
+            userDBService.deleteUserById(id);
         });
 
 

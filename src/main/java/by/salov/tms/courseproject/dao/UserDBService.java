@@ -5,12 +5,14 @@ import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UserDBService  {
     @Autowired
     private UserJpaRepository userJpaRepository;
@@ -23,6 +25,7 @@ public class UserDBService  {
     }
 
     public User deleteUserById(Long id) {
+        System.out.println(id);
         User user = userJpaRepository.deleteUserById(id);
         return user;
     }
