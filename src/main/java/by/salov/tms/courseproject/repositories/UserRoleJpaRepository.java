@@ -7,5 +7,7 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface UserRoleJpaRepository extends JpaRepository<UserRole,Long> {
-    void removeById(Long id);
+    void deleteUserRoleById(Long id);
+
+
 }

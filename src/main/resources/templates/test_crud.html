@@ -13,40 +13,43 @@
     <script type="module" th:src="@{/js/defaultMain.js}"></script>
 </head>
 <body>
-<table class="table table-striped">
     <form method="post" th:action="@{/test/crud}" id="userMap">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First name</th>
-            <th scope="col">Second name</th>
-            <th scope="col">Delete user</th>
-        </tr>
-        </thead>
-        <tbody>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First name</th>
+                <th scope="col">Second name</th>
+                <th scope="col">Delete user</th>
+            </tr>
+            </thead>
+            <tbody>
 
-        <tr th:each="entry: ${allUserMap}">
-            <th scope="row" th:text="${entry.key}"></th>
-            <td th:text="${entry.value.getFirstName}"></td>
-            <td th:text="${entry.value.getSecondName}"></td>
-            <td>
-                <input class="form-check-input"
-                       type="checkbox"
-                       th:name="|deleteUserById-${entry.value.getId}|"
-                       form="userMap"
-                >
-            </td>
-        </tr>
-        </tbody>
+            <tr th:each="entry: ${allUserMap}">
+                <th scope="row" th:text="${entry.key}"></th>
+                <td th:text="${entry.value.getFirstName}"></td>
+                <td th:text="${entry.value.getSecondName}"></td>
+                <td>
+<!--                    <input class="form-check-input" type="checkbox" form="userMap"
+                           th:name="|deleteUserById-${entry.value.getId}|"
+                    >-->
+                    <input class="form-check-input" type="checkbox" form="userMap"
+                           th:name="userId"
+                           th:value="${entry.value.getId}"
+                    >
+                </td>
+            </tr>
+            </tbody>
+        </table>
         <input type="submit" value="Submit" form="userMap">
     </form>
-</table>
 
-<span th:if="${parameterMap != null}">
-      <tr th:each="entry: ${parameterMap} ">
-    <td th:text="${entry.key}"></td><br>
-  </tr>
-  </span>
+    <span th:if="${parameterMap != null}">
+          <tr th:each="entry: ${parameterMap} ">
+        <td th:text="${entry.key}"></td><br>
+      </tr>
+    </span>
 
+    <form
 </body>
 </html>

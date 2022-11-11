@@ -12,6 +12,6 @@ class UserRoleJpaRepositoryIntegrationTest {
 
     @Test
     void removeUserRoleByIdTest() {
-        userRoleJpaRepository.removeById(1L);
+        userRoleJpaRepository.deleteUserRoleById(3L);
     }
 }

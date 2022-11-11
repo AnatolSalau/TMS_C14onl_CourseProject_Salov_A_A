@@ -21,7 +21,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/${url.test_controller}/")
 @PropertySource("classpath:url_html.properties")
-public class TestControllers {
+public class TestCrudController {
 
     @Value("${html.test_crud}")
     private String testCrudHtml;
@@ -32,14 +32,11 @@ public class TestControllers {
     @Autowired
     private UserJpaRepository userJpaRepository;
 
-    @Autowired
-    private StringUtils stringUtils;
-
     @GetMapping("${url.test_crud}")
     public ModelAndView getTestCrudTemplate() {
         ModelAndView modelAndView = new ModelAndView(testCrudHtml);
 
-        Map<Long, User> allUsersMap = userDBService.findAllUsersMap();;
+        Map<Long, User> allUsersMap = userDBService.findAllUsersMap();
         List<User> all = userJpaRepository.findAll();
 
         modelAndView.addObject("allUsersList", all);
@@ -48,21 +45,22 @@ public class TestControllers {
         return modelAndView;
     }
     @PostMapping ("${url.test_crud}")
-    public ModelAndView postTestCrudTemplate(HttpServletRequest httpServletRequest) {
+    public ModelAndView postTestCrudTemplate(@RequestParam(name = "userId", required = false) List<String> userIdList) {
         ModelAndView modelAndView = new ModelAndView(testCrudHtml);
 
-        Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
-        modelAndView.addObject("parameterMap", parameterMap);
-
-        List<String> trimmedKeys = stringUtils.ifKeyStartWithTrimIt(parameterMap, "deleteUserById-");
-        trimmedKeys.forEach(key -> {
-            Long id = Long.parseLong(key);
-            userDBService.deleteUserById(id);
-        });
-
-
+        userIdList.forEach(
+                id -> userDBService.deleteUserById(Long.parseLong(id))
+                );
         Map<Long, User> allUsersMap = userDBService.findAllUsersMap();
         modelAndView.addObject("allUserMap", allUsersMap);
+        return modelAndView;
+    }
+
+    @PostMapping ("${url.test_crud}/add")
+    public ModelAndView addUser(
+            @RequestParam(name = "user") String user
+    ) {
+        ModelAndView modelAndView = new ModelAndView(testCrudHtml);
 
         return modelAndView;
     }

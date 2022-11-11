@@ -4,6 +4,7 @@ import by.salov.tms.courseproject.entities.User;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -25,9 +26,9 @@ public class UserRole {
     private  String roleName;
 
     @ToString.Exclude
-    @OneToOne(mappedBy = "userRole", cascade = {CascadeType.PERSIST,
+    @OneToMany(mappedBy = "userRole", cascade = {CascadeType.PERSIST,
     CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    private User user;
+    private List<User> users;
 
     public UserRole ( Long id, Role roleName) {
         this.id = id;

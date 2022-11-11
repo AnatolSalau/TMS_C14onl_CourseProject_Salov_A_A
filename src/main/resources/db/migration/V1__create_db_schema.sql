@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
      second_name  varchar(255) NOT NULL,
      login varchar(255) NOT NULL,
      password  varchar(255) NOT NULL,
-     user_role_id BIGINT NOT NULL,
+     user_role_id BIGINT,
 
      CONSTRAINT fk_user_role_id
          FOREIGN KEY(user_role_id)

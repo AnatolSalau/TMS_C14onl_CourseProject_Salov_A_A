@@ -25,13 +25,13 @@ public  class User extends People{
     @Column(nullable = false)
     private String password;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
+            CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_role_id", foreignKey = @ForeignKey(name = "fk_user_role_id"))
     private UserRole userRole;
 
-    public User(String firstName, String secondName, String password, Long id, UserRole userRole) {
+    public User(String firstName, String secondName, String password, UserRole userRole) {
         super(firstName, secondName);
-        this.id = id;
         this.userRole = userRole;
         this.password = password;
     }

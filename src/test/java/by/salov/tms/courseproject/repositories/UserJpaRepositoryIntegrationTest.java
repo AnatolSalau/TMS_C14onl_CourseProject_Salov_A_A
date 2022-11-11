@@ -33,8 +33,8 @@ class UserJpaRepositoryIntegrationTest {
     }
 
     @Test
-    @Transactional
     void deleteUserByIdTest() {
-        userJpaRepository.deleteUserById(3L);
+        userJpaRepository.deleteUserById(2L);
     }
+
 }
