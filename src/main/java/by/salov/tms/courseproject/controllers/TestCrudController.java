@@ -47,10 +47,11 @@ public class TestCrudController {
     @PostMapping ("${url.test_crud}")
     public ModelAndView postTestCrudTemplate(@RequestParam(name = "userId", required = false) List<String> userIdList) {
         ModelAndView modelAndView = new ModelAndView(testCrudHtml);
-
-        userIdList.forEach(
-                id -> userDBService.deleteUserById(Long.parseLong(id))
-                );
+        if (userIdList !=null) {
+            userIdList.forEach(
+                    id -> userDBService.deleteUserById(Long.parseLong(id))
+            );
+        }
         Map<Long, User> allUsersMap = userDBService.findAllUsersMap();
         modelAndView.addObject("allUserMap", allUsersMap);
         return modelAndView;

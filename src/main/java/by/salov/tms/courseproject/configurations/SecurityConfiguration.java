@@ -88,15 +88,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(accessDeniedHandlerImpl)
                 .and()
                 .rememberMe() // configure remember me,
-/*                .tokenRepository(persistentTokenRepository) // persistent token for remember me
+                .tokenRepository(persistentTokenRepository) // persistent token for remember me
                 .rememberMeParameter("remember-me")// remember me field name in login form
-                .tokenValiditySeconds(86400)// keep valid for one day*/
+                .tokenValiditySeconds(86400)// keep valid for one day
                 .and()
                 .logout()
                 .permitAll()
                 .logoutUrl("/" + logoutUrl)
-                .logoutSuccessUrl("/" + loginUrl)
-                .and()
-                .csrf().disable();
+                .logoutSuccessUrl("/" + loginUrl);
     }
 }

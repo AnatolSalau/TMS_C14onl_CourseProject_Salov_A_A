@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Delete Users">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/DataSourceConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/PersistentTokenSecurityCongiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/PersistentToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
     </list>
@@ -371,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668158056112</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Delete Users">
+      <created>1668171222135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668171222135</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
