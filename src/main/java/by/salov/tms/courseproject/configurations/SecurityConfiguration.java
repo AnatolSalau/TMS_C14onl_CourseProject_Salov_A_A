@@ -6,6 +6,7 @@ import by.salov.tms.courseproject.handlers.AuthenticationSuccessHandlerImpl;
 import by.salov.tms.courseproject.services.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,6 +14,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 @EnableWebSecurity()
 @EnableGlobalMethodSecurity(
@@ -21,7 +26,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
         jsr250Enabled = true
 )
 @PropertySource("classpath:url_html.properties")
-public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Value("${url.user}")
     private String userUrl;
@@ -45,7 +50,10 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
     private UserDetailServiceImpl userDetailServiceImpl;
 
     @Autowired
-    AuthenticationSuccessHandlerImpl authenticationSuccessHandlerImpl;
+    private AuthenticationSuccessHandlerImpl authenticationSuccessHandlerImpl;
+
+    @Autowired
+    PersistentTokenRepository persistentTokenRepository;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -79,7 +87,10 @@ public class SecurityConfiguration<UrlHtmlNames> extends WebSecurityConfigurerAd
                 .exceptionHandling()
                 .accessDeniedHandler(accessDeniedHandlerImpl)
                 .and()
-                .rememberMe()
+                .rememberMe() // configure remember me,
+/*                .tokenRepository(persistentTokenRepository) // persistent token for remember me
+                .rememberMeParameter("remember-me")// remember me field name in login form
+                .tokenValiditySeconds(86400)// keep valid for one day*/
                 .and()
                 .logout()
                 .permitAll()

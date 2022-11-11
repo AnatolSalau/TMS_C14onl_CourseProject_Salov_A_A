@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Delete Users from DB">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/ParseUserService.java" afterDir="false" />
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Delete Users">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/DataSourceConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/PersistentTokenSecurityCongiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/PersistentToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/TestControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/TestCrudController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test_crud.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/test_crud.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserJpaRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserJpaRepositoryIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,7 +357,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668084963986</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Delete Users">
+      <created>1668157957690</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668157957690</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Delete Users">
+      <created>1668158056112</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668158056112</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +397,7 @@
     <MESSAGE value="Added Login Logout pages" />
     <MESSAGE value="Access denied" />
     <MESSAGE value="Delete Users from DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete Users from DB" />
+    <MESSAGE value="Delete Users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete Users" />
   </component>
 </project>
