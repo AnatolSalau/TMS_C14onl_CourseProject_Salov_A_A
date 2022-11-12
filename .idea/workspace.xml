@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Added LoginLogoutController">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" afterDir="false" />
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Many to Many doctors_patients">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/advice/UserAdviceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/exceptions/UserException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/exception.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/url_html.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/url_html.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +37,9 @@
         <option value="Enum" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -127,6 +128,7 @@
       <recent name="by.salov.tms.courseproject.repositories" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.salov.tms.courseproject.exceptions" />
       <recent name="by.salov.tms.courseproject.entities" />
     </key>
   </component>
@@ -248,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667931243988</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Many to Many doctors_patients">
+      <created>1668274675486</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668274675486</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +282,7 @@
     <MESSAGE value="Added UserDetailService" />
     <MESSAGE value="Spring read urls from properties file" />
     <MESSAGE value="Added LoginLogoutController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added LoginLogoutController" />
+    <MESSAGE value="Many to Many doctors_patients" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many to Many doctors_patients" />
   </component>
 </project>

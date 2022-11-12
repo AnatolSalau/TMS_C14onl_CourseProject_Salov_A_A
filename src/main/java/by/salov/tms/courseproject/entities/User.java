@@ -1,6 +1,8 @@
 package by.salov.tms.courseproject.entities;
 
+import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.entities.roles.UserRole;
+import by.salov.tms.courseproject.exceptions.UserException;
 import lombok.*;
 
 import javax.persistence.*;
@@ -46,11 +48,4 @@ public  class User extends People{
         this.password = password;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 }
