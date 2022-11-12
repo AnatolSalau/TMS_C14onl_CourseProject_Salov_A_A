@@ -2,11 +2,13 @@ package by.salov.tms.courseproject.controllers.advice;
 
 import by.salov.tms.courseproject.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
+@PropertySource("classpath:url_html.properties")
 public class ExceptionAdviceController {
 
     private final String NAME_EXCEPTION_ATTRIBUTE = "exceptionMessage";
