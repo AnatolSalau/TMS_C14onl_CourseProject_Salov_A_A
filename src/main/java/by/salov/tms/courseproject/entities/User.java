@@ -35,7 +35,7 @@ public  class User extends People{
     private UserRole userRole;
 
     @ToString.Exclude
-    @OneToOne(mappedBy = "user", cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Doctor doctor;
 
     @ToString.Exclude
