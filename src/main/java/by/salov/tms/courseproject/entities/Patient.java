@@ -25,7 +25,7 @@ public class Patient {
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
     @EqualsAndHashCode.Exclude
-    @ToString.Exclude
+/*    @ToString.Exclude*/
     private User user;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
@@ -37,6 +37,6 @@ public class Patient {
             inverseJoinColumns = {@JoinColumn(name = "doctor_id")}
     )
     @EqualsAndHashCode.Exclude
-    @ToString.Exclude
+/*    @ToString.Exclude*/
     private Set<Doctor> doctors = new HashSet<>();
 }

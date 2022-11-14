@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS users_roles (
     );
 
 CREATE TABLE IF NOT EXISTS doctors (
-   id BIGINT NOT NULL PRIMARY KEY,
+   id BIGINT  PRIMARY KEY,
    user_id BIGINT,
     CONSTRAINT fk_user_id FOREIGN KEY(id) REFERENCES users(id)
 );
@@ -36,7 +36,7 @@ start 1
 increment 1;
 
 CREATE TABLE IF NOT EXISTS patients (
-                                       id BIGINT NOT NULL PRIMARY KEY,
+                                       id BIGINT PRIMARY KEY,
                                        user_id BIGINT,
                                        CONSTRAINT fk_user_id FOREIGN KEY(id) REFERENCES users(id)
 );
