@@ -1,5 +1,11 @@
 INSERT INTO roles (id, role)
-VALUES (1, 'ROLE_ADMIN'),
+VALUES  (-1, 'ROLE_ADMIN'),
+        (-2, 'ROLE_DOCTOR'),
+        (-3, 'ROLE_USER');
+
+
+INSERT INTO roles (id, role)
+VALUES  (1, 'ROLE_ADMIN'),
        (2, 'ROLE_DOCTOR'),
        (3, 'ROLE_USER');
 
@@ -12,3 +18,10 @@ INSERT INTO users_roles (role_id, user_id)
 VALUES (1,1),
        (2,2),
        (3,3);
+
+INSERT INTO doctors (id, user_id)
+VALUES (1,2);
+
+
+
+

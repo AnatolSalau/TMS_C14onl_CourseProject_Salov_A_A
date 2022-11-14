@@ -30,8 +30,7 @@ public class UserRole {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToMany(
-            cascade = {CascadeType.PERSIST,
-    CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+            cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER
     )
     @JoinTable(

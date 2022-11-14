@@ -34,21 +34,24 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         List<String> rolesList = authorities.stream()
                 .map(Object::toString)
                 .toList();
-        rolesList.stream().forEach( role -> {
-                try {
-                    if (Role.ROLE_USER.toString().equals(role)) {
-                        response.sendRedirect(userUrl);
-                    }
-                    else if (Role.ROLE_DOCTOR.toString().equals(role)) {
-                        response.sendRedirect(doctorUrl);
-                    }
-                    else  if (Role.ROLE_ADMIN.toString().equals(role)) {
-                        response.sendRedirect(adminUrl);
-                    }
-                } catch (IOException exception) {
-                    exception.printStackTrace();
+
+        for (String role : rolesList) {
+            try {
+                if (Role.ROLE_USER.toString().equals(role)) {
+                    response.sendRedirect(userUrl);
+                    break;
                 }
+                else if (Role.ROLE_DOCTOR.toString().equals(role)) {
+                    response.sendRedirect(doctorUrl);
+                    break;
+                }
+                else  if (Role.ROLE_ADMIN.toString().equals(role)) {
+                    response.sendRedirect(adminUrl);
+                    break;
+                }
+            } catch (IOException exception) {
+                exception.printStackTrace();
             }
-        );
+        }
     }
 }
