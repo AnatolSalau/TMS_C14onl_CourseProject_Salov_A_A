@@ -28,9 +28,26 @@ CREATE TABLE IF NOT EXISTS users_roles (
 
 CREATE TABLE IF NOT EXISTS doctors (
    id BIGINT NOT NULL PRIMARY KEY,
-   user_id BIGINT ,
+   user_id BIGINT,
     CONSTRAINT fk_user_id FOREIGN KEY(id) REFERENCES users(id)
 );
 CREATE SEQUENCE IF NOT EXISTS doctors_id_seq
 start 1
 increment 1;
+
+CREATE TABLE IF NOT EXISTS patients (
+                                       id BIGINT NOT NULL PRIMARY KEY,
+                                       user_id BIGINT,
+                                       CONSTRAINT fk_user_id FOREIGN KEY(id) REFERENCES users(id)
+);
+CREATE SEQUENCE IF NOT EXISTS patients_id_seq
+    start 1
+    increment 1;
+
+CREATE TABLE IF NOT EXISTS doctors_patients (
+                                           patient_id BIGINT NOT NULL,
+                                           doctor_id BIGINT NOT NULL,
+                                           PRIMARY KEY (patient_id,doctor_id),
+                                           CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id),
+                                           CONSTRAINT fk_doctor_id FOREIGN KEY(doctor_id) REFERENCES patients(id)
+);

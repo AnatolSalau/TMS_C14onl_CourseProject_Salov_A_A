@@ -22,16 +22,21 @@ public class Patient {
     @Column(nullable = false)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private User user;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {
+            CascadeType.ALL
+    })
     @JoinTable(
             name = "doctors_patients",
             joinColumns = {@JoinColumn(name = "patient_id")},
             inverseJoinColumns = {@JoinColumn(name = "doctor_id")}
     )
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Set<Doctor> doctors = new HashSet<>();
 }

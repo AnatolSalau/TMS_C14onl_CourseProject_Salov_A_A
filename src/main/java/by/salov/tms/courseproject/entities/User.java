@@ -41,8 +41,8 @@ public  class User extends People{
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private List <Doctor> doctorAccounts;
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Doctor doctor;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
