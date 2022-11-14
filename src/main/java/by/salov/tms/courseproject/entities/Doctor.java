@@ -22,8 +22,12 @@ public class Doctor {
     @Column(nullable = false)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {
+            CascadeType.DETACH,
+            CascadeType.REFRESH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST
+    })
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
     private User user;
 
@@ -34,4 +38,9 @@ public class Doctor {
             inverseJoinColumns = {@JoinColumn(name = "patient_id")}
     )
     private Set<Patient> patients = new HashSet<>();
+
+    public Doctor(Long id, User user) {
+        this.id = id;
+        this.user = user;
+    }
 }

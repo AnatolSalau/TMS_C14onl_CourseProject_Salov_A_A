@@ -5,6 +5,7 @@ import by.salov.tms.courseproject.entities.roles.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 public interface DoctorJpaRepository extends JpaRepository<Doctor,Long> {

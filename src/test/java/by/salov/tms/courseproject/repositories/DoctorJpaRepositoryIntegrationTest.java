@@ -1,5 +1,6 @@
 package by.salov.tms.courseproject.repositories;
 
+import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.entities.Doctor;
 import by.salov.tms.courseproject.entities.User;
 import org.junit.jupiter.api.Test;
@@ -14,12 +15,16 @@ class DoctorJpaRepositoryIntegrationTest {
     @Autowired
     DoctorJpaRepository doctorJpaRepository;
 
+    @Autowired
+    DoctorDBService doctorDBService;
+
     @Test
     void deleteDoctorByIdTest() {
         Doctor doctorById = doctorJpaRepository.findDoctorById(1L);
         User user = doctorById.getUser();
         user = null;
-
+        Doctor newDoctor = new Doctor(1L,null);
+        doctorDBService.saveDoctor(newDoctor);
         doctorJpaRepository.deleteDoctorById(1L);
     }
 }
