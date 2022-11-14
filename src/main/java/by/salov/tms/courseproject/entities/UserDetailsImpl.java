@@ -15,18 +15,14 @@ import java.util.stream.Collectors;
 @Getter
 public class UserDetailsImpl implements UserDetails {
 
-    private String login;
-    private String password;
-    private List<String> userRoleNames;
+    private final String login;
+    private final String password;
+    private final List<String> userRoleNames;
 
-    public UserDetailsImpl(String login, String password, String... userRoleNames) {
+    public UserDetailsImpl(String login, String password, List<String> userRoleNames) {
         this.login = login;
         this.password = password;
-        this.userRoleNames = new ArrayList<>();
-        Arrays.stream(userRoleNames)
-                .forEach(userRoleName -> {
-                    this.userRoleNames.add(userRoleName);
-                });
+        this.userRoleNames = userRoleNames;
     }
 
     @Override

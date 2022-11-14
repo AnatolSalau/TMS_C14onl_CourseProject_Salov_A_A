@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Spring Security Worked version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/ParseUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/UserDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserJpaRepositoryIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepositoryIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/utils/StringUtilsTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +62,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
@@ -381,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668171886773</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Spring Security Worked version">
+      <created>1668415815210</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668415815210</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

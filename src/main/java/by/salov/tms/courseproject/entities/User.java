@@ -6,7 +6,10 @@ import by.salov.tms.courseproject.exceptions.UserException;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -29,10 +32,13 @@ public  class User extends People{
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "user_role_id", foreignKey = @ForeignKey(name = "fk_user_role_id"))
-    private UserRole userRole;
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST,
+            CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+            mappedBy = "users"
+    )
+    private Set<UserRole> userRoles = new HashSet<>();
 
     @ToString.Exclude
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
@@ -42,10 +48,9 @@ public  class User extends People{
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Patient patient;
 
-    public User(String firstName, String secondName, String password, UserRole userRole) {
+    public User(String firstName, String secondName, String password, HashSet<UserRole> userRoles) {
         super(firstName, secondName);
-        this.userRole = userRole;
+        this.userRoles = userRoles;
         this.password = password;
     }
-
 }

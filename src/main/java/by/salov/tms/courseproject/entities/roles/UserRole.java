@@ -4,21 +4,23 @@ import by.salov.tms.courseproject.entities.User;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode()
 @ToString
 
 @Entity
-@Table(name = "user_role")
-@SequenceGenerator(sequenceName = "user_role_id_seq",
-        name = "user_role_id_seq", allocationSize = 1)
+@Table(name = "roles")
+@SequenceGenerator(sequenceName = "roles_id_seq",
+        name = "roles_id_seq", allocationSize = 1)
 public class UserRole {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_role_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "roles_id_seq")
     @Column(nullable = false)
     private  Long id;
 
@@ -26,9 +28,18 @@ public class UserRole {
     private  String roleName;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "userRole", cascade = {CascadeType.PERSIST,
-    CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    private List<User> users;
+    @EqualsAndHashCode.Exclude
+    @ManyToMany(
+            cascade = {CascadeType.PERSIST,
+    CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id")) ,
+            inverseJoinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
+    )
+    private Set<User> users = new HashSet<>();
 
     public UserRole ( Long id, Role roleName) {
         this.id = id;
