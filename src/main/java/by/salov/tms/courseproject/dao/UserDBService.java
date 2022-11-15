@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,5 +30,12 @@ public class UserDBService  {
     public User saveUser(User user) {
         User savedUser = userJpaRepository.save(user);
         return savedUser;
+    }
+
+    public User findUserByLogin(String login) {
+        String loginTrimmedLowerCase = null;
+        loginTrimmedLowerCase = login.toLowerCase().trim();
+        User userByLogin = userJpaRepository.findUserByLogin(loginTrimmedLowerCase).orElse(null);
+            return userByLogin;
     }
 }

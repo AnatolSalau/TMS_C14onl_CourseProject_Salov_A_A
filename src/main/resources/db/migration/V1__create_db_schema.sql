@@ -7,10 +7,10 @@ start 1
 increment 1;
 
 CREATE TABLE IF NOT EXISTS users (
-     id BIGINT NOT NULL PRIMARY KEY,
+     id BIGINT NOT NULL PRIMARY KEY ,
      first_name   varchar(255) NOT NULL,
      second_name  varchar(255) NOT NULL,
-     login varchar(255) NOT NULL,
+     login varchar(255) NOT NULL UNIQUE,
      password  varchar(255) NOT NULL
 );
 CREATE SEQUENCE IF NOT EXISTS users_id_seq

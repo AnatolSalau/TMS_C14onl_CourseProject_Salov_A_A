@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Users and Roles Many to Many relation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/CreateAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/create_account.html" afterDir="false" />
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="UserValidateService">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/CreateAccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/PatientDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/PatientJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/logout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/url_html.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/url_html.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/UserValidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/UserValidateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/create_account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/create_account.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668426216546</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="UserValidateService">
+      <created>1668512170913</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668512170913</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +373,33 @@
     <MESSAGE value="Delete Users" />
     <MESSAGE value="Spring Security Worked version" />
     <MESSAGE value="Users and Roles Many to Many relation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Users and Roles Many to Many relation" />
+    <MESSAGE value="UserValidateService" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserValidateService" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/UserValidateService.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/UserValidateService.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

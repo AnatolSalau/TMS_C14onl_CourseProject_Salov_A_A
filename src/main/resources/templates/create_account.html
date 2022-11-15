@@ -17,13 +17,17 @@
 <div class="container">
     <div class="mb-3">Create account html</div>
     <form name="loginForm" th:action="@{/createaccount}" method="post" id="newUser"
-          th:if="${rolesFromUi != true}"
+          th:if="${accountCreateSuccessful != true}"
     >
         <legend>Enter information in fields for creating your account</legend>
         <label for="login">Login</label>
         <input type="text" class="form-control" id="login"
                name="login" form="newUser" required
         />
+        <div class="form-text" style="color: red"
+             th:if="${loginExist == true}"
+        >Login already exist</div>
+
         <label for="password">Password</label>
         <input type="text" class="form-control" id="password"
                name="password" form="newUser" required
