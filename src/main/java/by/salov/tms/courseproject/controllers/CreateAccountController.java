@@ -8,6 +8,7 @@ import by.salov.tms.courseproject.services.UserValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,9 @@ public class CreateAccountController {
 
     @Autowired
     private UserValidateService userValidateService;
+
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private UserDBService userDBService;
@@ -54,6 +58,7 @@ public class CreateAccountController {
             @RequestParam(name = "secondname") String secondname
     ) {
         ModelAndView modelAndView = new ModelAndView(createAccountHtml);
+        User newUser = null;
         if (login == null ||
                 password == null ||
                 firstname == null ||
@@ -61,7 +66,12 @@ public class CreateAccountController {
         ) {
             modelAndView.addObject("accountCreateSuccessful", false);
         }
-        User newUser = new User(firstname,secondname,password,login.toLowerCase().trim(),Role.ROLE_USER);
+        else {
+            String encodedPassword = bCryptPasswordEncoder.encode(password.trim());
+            newUser = new User(firstname,secondname,encodedPassword,login.toLowerCase().trim(),Role.ROLE_USER);
+            encodedPassword = null;
+
+        }
         if (userValidateService.validateUserByLogin(newUser)) {
             userDBService.saveUser(newUser);
             modelAndView.addObject("accountCreateSuccessful", true);

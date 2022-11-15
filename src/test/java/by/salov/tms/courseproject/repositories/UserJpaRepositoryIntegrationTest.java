@@ -1,5 +1,7 @@
 package by.salov.tms.courseproject.repositories;
 
+import by.salov.tms.courseproject.entities.User;
+import by.salov.tms.courseproject.entities.roles.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,5 +17,13 @@ class UserJpaRepositoryIntegrationTest {
     @Test
     void deleteUserByIdTest() {
         userJpaRepository.deleteUserById(1L);
+    }
+
+    @Test
+    void saveUserTest() {
+        User newUser = new User(
+                "Anatoly", "Salov", "1111", "anatoly", Role.ROLE_USER
+        );
+        userJpaRepository.save(newUser);
     }
 }

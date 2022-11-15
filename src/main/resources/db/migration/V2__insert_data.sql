@@ -1,8 +1,19 @@
+
+
+INSERT INTO roles (id, role)
+VALUES  (-1, 'ROLE_ADMIN');
+
+INSERT INTO users (id, first_name, second_name, login, password)
+VALUES (-1, 'admin1', 'admin1', 'admin', '$2a$12$5vbzLqZOecJsvMUxpNHfS.De3iG1c6QktE6ve4JQVhze.3J0ul3NO');
+
+INSERT INTO users_roles (role_id, user_id)
+VALUES (-1,-1);
+
+/*
 INSERT INTO roles (id, role)
 VALUES  (-1, 'ROLE_ADMIN'),
         (-2, 'ROLE_DOCTOR'),
         (-3, 'ROLE_USER');
-
 
 INSERT INTO roles (id, role)
 VALUES  (nextval('role_id_seq'), 'ROLE_ADMIN'),
@@ -38,6 +49,6 @@ INSERT  INTO doctors_patients (patient_id, doctor_id)
 VALUES (1,1),
        (2,1);
 
-
+*/
 
 
