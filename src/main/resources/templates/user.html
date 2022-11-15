@@ -7,8 +7,12 @@
     <script type="module" th:src="@{/js/defaultMain.js}"></script>
 </head>
 <body>
-<div id="wrapper">
-    <div class="hello"> User template</div>
-</div>
+    <div class="container">
+        <div class="mb-3"> Login template</div>
+        <div class="card">
+            <div class="card-body" th:text="${user}">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

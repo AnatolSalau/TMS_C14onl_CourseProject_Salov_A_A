@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @PropertySource("classpath:url_html.properties")
@@ -29,6 +30,9 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException,
             ServletException {
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        String[] logins = parameterMap.get("username");
+
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         /*Get list of User roles*/
         List<String> rolesList = authorities.stream()
@@ -38,7 +42,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         for (String role : rolesList) {
             try {
                 if (Role.ROLE_USER.toString().equals(role)) {
-                    response.sendRedirect(userUrl);
+                    response.sendRedirect(userUrl + "/" + logins[0]);
                     break;
                 }
                 else if (Role.ROLE_DOCTOR.toString().equals(role)) {
