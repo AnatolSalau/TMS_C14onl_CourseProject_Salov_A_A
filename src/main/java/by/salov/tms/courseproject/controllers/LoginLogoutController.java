@@ -26,4 +26,5 @@ public class LoginLogoutController {
     public String getLogoutTemplate() {
         return logoutHtml;
     }
+
 }

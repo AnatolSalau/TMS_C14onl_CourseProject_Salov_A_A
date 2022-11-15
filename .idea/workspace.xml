@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="delete Doctor">
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Users and Roles Many to Many relation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/CreateAccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/create_account.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/DoctorJpaRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/DoctorJpaRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/PatientDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/PatientJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/styles/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/styles/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/url_html.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/url_html.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,19 +36,29 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tms_c14onl_courseproject_salov_a_a" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Enum" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,7 +69,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -86,40 +107,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaDevelop/Projects/TMS_C14onl_CourseProject_Salov_A_A/src/main/resources/templates&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;3d04a36fda0a4da85445bf81cfaa7975&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
-    ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;PostgreSQL&quot;
-    ]
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources\templates" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
       <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources\db\migration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA\Projects\tms_c14onl_courseproject_salov_a_a\src\main\resources" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\static\js" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\static\styles" />
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
@@ -128,15 +134,12 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="by.salov.tms.courseproject.dao" />
       <recent name="by.salov.tms.courseproject.repositories" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="by.salov.tms.courseproject.exceptions" />
-      <recent name="by.salov.tms.courseproject.entities" />
+      <recent name="by.salov.tms.courseproject.dao" />
+      <recent name="by.salov.tms.courseproject.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DoctorJpaRepositoryIntegrationTest.deleteDoctorByIdTest">
+  <component name="RunManager" selected="Spring Boot.TmsC14onlCourseprojectSalovAAApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -175,13 +178,13 @@
     </configuration>
     <configuration name="TmsC14onlCourseprojectSalovAAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="tms_c14onl_courseproject_salov_a_a.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="by.salov.tms.courseproject.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,8 +200,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DoctorJpaRepositoryIntegrationTest.deleteDoctorByIdTest" />
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
+        <item itemvalue="Gradle.DoctorJpaRepositoryIntegrationTest.deleteDoctorByIdTest" />
       </list>
     </recent_temporary>
   </component>
@@ -264,56 +267,84 @@
       <option name="project" value="LOCAL" />
       <updated>1667840236502</updated>
     </task>
-    <task id="LOCAL-00008" summary="Spring read urls from properties file">
-      <created>1667928376477</created>
+    <task id="LOCAL-00008" summary="Added Login Logout pages">
+      <created>1667975631805</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1667928376477</updated>
+      <updated>1667975631805</updated>
     </task>
-    <task id="LOCAL-00009" summary="Added LoginLogoutController">
-      <created>1667931243988</created>
+    <task id="LOCAL-00009" summary="Access denied">
+      <created>1667988088026</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1667931243988</updated>
+      <updated>1667988088026</updated>
     </task>
-    <task id="LOCAL-00010" summary="Many to Many doctors_patients">
-      <created>1668274675486</created>
+    <task id="LOCAL-00010" summary="Access denied">
+      <created>1667994970559</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1668274675486</updated>
+      <updated>1667994970559</updated>
     </task>
-    <task id="LOCAL-00011" summary="Many to Many doctors_patients">
-      <created>1668277109758</created>
+    <task id="LOCAL-00011" summary="Delete Users from DB">
+      <created>1668083717603</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1668277109758</updated>
+      <updated>1668083717603</updated>
     </task>
-    <task id="LOCAL-00012" summary="Many to Many doctors_patients">
-      <created>1668277251012</created>
+    <task id="LOCAL-00012" summary="Delete Users from DB">
+      <created>1668084963986</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1668277251012</updated>
+      <updated>1668084963986</updated>
     </task>
-    <task id="LOCAL-00013" summary="delete Doctor">
-      <created>1668447918295</created>
+    <task id="LOCAL-00013" summary="Delete Users">
+      <created>1668157957690</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1668447918295</updated>
+      <updated>1668157957690</updated>
     </task>
-    <task id="LOCAL-00014" summary="delete Doctor">
-      <created>1668451541390</created>
+    <task id="LOCAL-00014" summary="Delete Users">
+      <created>1668158056112</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1668451541390</updated>
+      <updated>1668158056112</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Delete Users">
+      <created>1668171222135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668171222135</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Spring Security Worked version">
+      <created>1668171886773</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668171886773</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Spring Security Worked version">
+      <created>1668415815210</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668415815210</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Users and Roles Many to Many relation">
+      <created>1668426216546</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668426216546</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,10 +367,12 @@
     <MESSAGE value="Added People -&gt; User&#10;Role -&gt; User Role" />
     <MESSAGE value="Added UserDetailsImpl" />
     <MESSAGE value="Added UserDetailService" />
-    <MESSAGE value="Spring read urls from properties file" />
-    <MESSAGE value="Added LoginLogoutController" />
-    <MESSAGE value="Many to Many doctors_patients" />
-    <MESSAGE value="delete Doctor" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete Doctor" />
+    <MESSAGE value="Added Login Logout pages" />
+    <MESSAGE value="Access denied" />
+    <MESSAGE value="Delete Users from DB" />
+    <MESSAGE value="Delete Users" />
+    <MESSAGE value="Spring Security Worked version" />
+    <MESSAGE value="Users and Roles Many to Many relation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Users and Roles Many to Many relation" />
   </component>
 </project>

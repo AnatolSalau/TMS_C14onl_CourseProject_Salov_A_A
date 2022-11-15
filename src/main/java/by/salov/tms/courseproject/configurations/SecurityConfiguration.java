@@ -42,6 +42,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private String logoutUrl;
     @Value("${url.test_controller}")
     private String testControllerUrl;
+    @Value("${url.create_account}")
+    private String createAccountUrl;
 
     @Autowired
     private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
@@ -72,7 +74,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .hasAnyRole(Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + userUrl + "/**")
                 .hasAnyRole(Role.ROLE_USER.getRoleName(), Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
-                .antMatchers("/**")
+                .antMatchers("/**", createAccountUrl)
                 .permitAll()
                 .and()
                 .formLogin()

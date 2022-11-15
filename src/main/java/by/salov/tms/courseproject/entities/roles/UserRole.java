@@ -40,8 +40,7 @@ public class UserRole {
     )
     private Set<User> users = new HashSet<>();
 
-    public UserRole ( Long id, Role roleName) {
-        this.id = id;
-        this.roleName = roleName.toString();
+    public UserRole (Role role) {
+        this.roleName = role.toString();
     }
 }

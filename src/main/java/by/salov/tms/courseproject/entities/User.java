@@ -27,7 +27,7 @@ public  class User extends People{
     @Column(nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String login;
     @Column(nullable = false)
     private String password;
@@ -49,9 +49,16 @@ public  class User extends People{
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Patient patient;
 
-    public User(String firstName, String secondName, String password, HashSet<UserRole> userRoles) {
+    public User(String firstName, String secondName, String password, String login, HashSet<UserRole> userRoles) {
         super(firstName, secondName);
         this.userRoles = userRoles;
         this.password = password;
+        this.login = login;
+    }
+    public User(String firstName, String secondName, String password, String login, Role role) {
+        super(firstName, secondName);
+        this.userRoles .add(new UserRole(role));
+        this.password = password;
+        this.login = login;
     }
 }
