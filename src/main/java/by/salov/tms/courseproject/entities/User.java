@@ -21,7 +21,7 @@ import java.util.Set;
 @Table(name = "users")
 @SequenceGenerator(sequenceName = "users_id_seq",
         name = "users_id_seq", allocationSize = 1)
-public  class User extends People{
+public class User extends People {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
     @Column(nullable = false)
@@ -32,10 +32,16 @@ public  class User extends People{
     @Column(nullable = false)
     private String password;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToMany(
-            fetch = FetchType.EAGER,
             cascade = {CascadeType.ALL},
-            mappedBy = "users"
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "users_roles",
+            inverseJoinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id") ,
+            joinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id")
     )
     private Set<UserRole> userRoles = new HashSet<>();
 
@@ -55,10 +61,12 @@ public  class User extends People{
         this.password = password;
         this.login = login;
     }
+
     public User(String firstName, String secondName, String password, String login, Role role) {
         super(firstName, secondName);
-        this.userRoles .add(new UserRole(role));
+        this.userRoles.add(new UserRole(role));
         this.password = password;
         this.login = login;
     }
+
 }
