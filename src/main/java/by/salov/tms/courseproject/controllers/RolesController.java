@@ -25,6 +25,8 @@ public class RolesController {
     private String adminHtml;
     @Value("${html.doctor}")
     private String doctorHtml;
+    @Value("${html.patient}")
+    private String patientHtml;
 
     @GetMapping("${url.user}" + "/{login}")
     public ModelAndView getUserTemplate(@PathVariable String login) {
@@ -32,6 +34,11 @@ public class RolesController {
         User userByLogin = userDBService.findUserByLogin(login);
         modelAndView.addObject("user", userByLogin);
         return modelAndView;
+    }
+
+    @GetMapping("${url.patient}")
+    public String getPatientTemplate() {
+        return patientHtml;
     }
 
     @GetMapping("${url.admin}")

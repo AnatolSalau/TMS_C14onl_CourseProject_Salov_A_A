@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+
 @ControllerAdvice
 @PropertySource("classpath:url_html.properties")
 public class ExceptionAdviceController {
@@ -18,6 +20,14 @@ public class ExceptionAdviceController {
 
     @ExceptionHandler(UserException.class)
     public ModelAndView handleUserException(Exception ex) {
+        ModelAndView modelAndView = new ModelAndView(exceptionHtml);
+        String message = ex.getMessage();
+        modelAndView.addObject(NAME_EXCEPTION_ATTRIBUTE,message);
+        return modelAndView;
+    }
+
+    @ExceptionHandler(IOException.class)
+    public ModelAndView handleIOException(IOException ex) {
         ModelAndView modelAndView = new ModelAndView(exceptionHtml);
         String message = ex.getMessage();
         modelAndView.addObject(NAME_EXCEPTION_ATTRIBUTE,message);

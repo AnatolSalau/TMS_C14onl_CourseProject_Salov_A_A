@@ -34,6 +34,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private String adminUrl;
     @Value("${url.doctor}")
     private String doctorUrl;
+    @Value("${url.patient}")
+    private String patientUrl;
     @Value("${url.login}")
     private String loginUrl;
     @Value("${url.perform_login}")
@@ -72,8 +74,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .hasRole(Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + doctorUrl + "/**")
                 .hasAnyRole(Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
+                .antMatchers("/" + patientUrl + "/**")
+                .hasAnyRole(Role.ROLE_PATIENT.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + userUrl + "/**")
-                .hasAnyRole(Role.ROLE_USER.getRoleName(), Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
+                .hasAnyRole(Role.ROLE_USER.getRoleName(), Role.ROLE_PATIENT.getRoleName(), Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/**", createAccountUrl)
                 .permitAll()
                 .and()

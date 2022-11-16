@@ -25,6 +25,9 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
     private String adminUrl;
     @Value("${url.doctor}")
     private String doctorUrl;
+    @Value("${url.patient}")
+    private String patientUrl;
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
@@ -40,7 +43,6 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
                 .toList();
 
         for (String role : rolesList) {
-            try {
                 if (Role.ROLE_USER.toString().equals(role)) {
                     response.sendRedirect(userUrl + "/" + logins[0]);
                     break;
@@ -49,13 +51,14 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
                     response.sendRedirect(doctorUrl);
                     break;
                 }
+                else if (Role.ROLE_PATIENT.toString().equals(role)) {
+                    response.sendRedirect(patientUrl);
+                    break;
+                }
                 else  if (Role.ROLE_ADMIN.toString().equals(role)) {
                     response.sendRedirect(adminUrl);
                     break;
                 }
-            } catch (IOException exception) {
-                exception.printStackTrace();
-            }
         }
     }
 }
