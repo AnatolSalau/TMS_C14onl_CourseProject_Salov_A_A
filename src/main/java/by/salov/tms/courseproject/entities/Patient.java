@@ -22,7 +22,11 @@ public class Patient {
     @Column(nullable = false)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToOne(fetch = FetchType.EAGER, cascade = {
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.DETACH
+    })
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
     @EqualsAndHashCode.Exclude
     @ToString.Exclude

@@ -26,7 +26,10 @@ class DoctorJpaRepositoryIntegrationTest {
 
     @Test
     void deleteDoctorByIdTest() {
-        doctorJpaRepository.deleteDoctorById(1L);
+/*        Doctor doctorById = doctorJpaRepository.findDoctorById(3L);
+        doctorById.setUser(null);
+        doctorJpaRepository.save(doctorById);*/
+        doctorJpaRepository.deleteDoctorById(2L);
 /*        Doctor doctorById = doctorJpaRepository.findDoctorById(1L);
         User user = doctorById.getUser();
         Patient patient = user.getPatient();
@@ -40,9 +43,23 @@ class DoctorJpaRepositoryIntegrationTest {
 
     @Test
     void saveDoctorTest() {
-        User user = new User("anatolyFirst", "anatolySecond", "1111", "anatoly", Role.ROLE_USER);
+/*        User user = new User("anatolyFirst", "anatolySecond", "1111", "anatoly", Role.ROLE_USER);
         userDBService.saveUser(user);
-        User anatoly = userDBService.findUserByLogin("user");
-        doctorDBService.saveDoctor(anatoly);
+        User anatoly = userDBService.findUserByLogin("anatoly");
+        doctorDBService.saveDoctor(anatoly);*/
+
+       User user = new User("vikaFirst", "vikaSecond", "1111", "vika", Role.ROLE_USER);
+        userDBService.saveUser(user);
+        User vika = userDBService.findUserByLogin("vika");
+        Doctor doctor = new Doctor(vika);
+        doctorDBService.saveDoctor(doctor);
     }
+
+    @Test
+    void deleteDoctorByUser_LoginTest() {
+        User vika = userDBService.findUserByLogin("vika");
+        Doctor doctorById = doctorJpaRepository.findDoctorByUser(vika);
+        doctorById.setUser(null);
+        doctorJpaRepository.save(doctorById);
+    };
 }

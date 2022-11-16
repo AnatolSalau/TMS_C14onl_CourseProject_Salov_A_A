@@ -24,7 +24,8 @@ public class Doctor {
 
     @OneToOne (fetch = FetchType.EAGER, cascade = {
         CascadeType.MERGE,
-            CascadeType.REMOVE
+            CascadeType.REFRESH,
+            CascadeType.DETACH
     })
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
     @EqualsAndHashCode.Exclude

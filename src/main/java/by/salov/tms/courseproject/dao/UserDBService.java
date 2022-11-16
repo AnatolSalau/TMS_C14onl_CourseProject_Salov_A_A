@@ -26,6 +26,9 @@ public class UserDBService  {
         System.out.println(id);
         userJpaRepository.deleteUserById(id);
     }
+    public void deleteUserByLogn(String login) {
+        userJpaRepository.deleteUserByLogin(login);
+    }
 
     public User saveUser(User user) {
         User savedUser = userJpaRepository.save(user);

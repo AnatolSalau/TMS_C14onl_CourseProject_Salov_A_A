@@ -1,6 +1,8 @@
 package by.salov.tms.courseproject.controllers;
 
+import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
+import by.salov.tms.courseproject.entities.Doctor;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.UrlValidateService;
@@ -11,8 +13,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping(path = "/")
@@ -23,10 +29,16 @@ public class RolesController {
     private UserDBService userDBService;
 
     @Autowired
+    private DoctorDBService doctorDBService;
+
+    @Autowired
     private UrlValidateService urlValidateService;
 
     @Value("${html.user}")
     private String userHtml;
+
+    @Value("${url.user}")
+    private String userUrl;
     @Value("${html.admin}")
     private String adminHtml;
     @Value("${html.doctor}")
@@ -48,6 +60,15 @@ public class RolesController {
 
         modelAndView.addObject("user", userByLogin);
         return modelAndView;
+    }
+    @PostMapping("${url.user}" + "/adddoctor")
+    RedirectView addDoctorToUser(
+            HttpServletResponse httpServletResponse,
+            Authentication authentication
+    ) throws UserException {
+        String login = authentication.getName();
+        doctorDBService.saveDoctorByUserLogin(login);
+        return new RedirectView("/" + userUrl + "/" + login);
     }
 
     @GetMapping("${url.patient}" + "/{login}")
