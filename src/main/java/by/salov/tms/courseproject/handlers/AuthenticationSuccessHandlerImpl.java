@@ -47,15 +47,15 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
                     break;
                 }
                 else if (Role.ROLE_DOCTOR.toString().equals(role)) {
-                    response.sendRedirect(doctorUrl);
+                    response.sendRedirect(doctorUrl + "/" + userLogin);
                     break;
                 }
                 else if (Role.ROLE_PATIENT.toString().equals(role)) {
-                    response.sendRedirect(patientUrl);
+                    response.sendRedirect(patientUrl + "/" + userLogin);
                     break;
                 }
                 else  if (Role.ROLE_ADMIN.toString().equals(role)) {
-                    response.sendRedirect(adminUrl);
+                    response.sendRedirect(adminUrl + "/" + userLogin);
                     break;
                 }
         }

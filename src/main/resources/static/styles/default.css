@@ -13,3 +13,13 @@
 .card {
     background-color: lightcyan;
 }
+.card-header {
+    display: flex;
+    padding-bottom: 2px;
+}
+#userAccLogout {
+    margin-left: 300px;
+}
+#accountCard {
+    background-color: white;
+}

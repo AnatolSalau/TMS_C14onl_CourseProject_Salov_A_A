@@ -3,6 +3,7 @@ package by.salov.tms.courseproject.controllers;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.exceptions.UserException;
+import by.salov.tms.courseproject.services.UrlValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -21,6 +22,9 @@ public class RolesController {
     @Autowired
     private UserDBService userDBService;
 
+    @Autowired
+    private UrlValidateService urlValidateService;
+
     @Value("${html.user}")
     private String userHtml;
     @Value("${html.admin}")
@@ -35,11 +39,9 @@ public class RolesController {
             @PathVariable String login,
             Authentication authentication
     ) throws UserException {
-        /*Check current session login*/
-        String name = authentication.getName();
-        if (!name.equals(login)) {
-            throw new UserException("You can't switch to someone else's account");
-        }
+        urlValidateService.validatePathVariableByLogin(
+                authentication,login
+        );
 
         ModelAndView modelAndView = new ModelAndView(userHtml);
         User userByLogin = userDBService.findUserByLogin(login);
@@ -48,19 +50,49 @@ public class RolesController {
         return modelAndView;
     }
 
-    @GetMapping("${url.patient}")
-    public String getPatientTemplate() {
-        return patientHtml;
+    @GetMapping("${url.patient}" + "/{login}")
+    public ModelAndView getPatientTemplate(
+            @PathVariable String login,
+            Authentication authentication
+    ) throws UserException {
+        urlValidateService.validatePathVariableByLogin(
+                authentication,login
+        );
+        ModelAndView modelAndView = new ModelAndView(patientHtml);
+        User userByLogin = userDBService.findUserByLogin(login);
+
+        modelAndView.addObject("user", userByLogin);
+        return modelAndView;
     }
 
-    @GetMapping("${url.admin}")
-    public String getAdminTemplate() {
-        return adminHtml;
+
+    @GetMapping("${url.doctor}"+ "/{login}")
+    public ModelAndView getDoctorTemplate(
+            @PathVariable String login,
+            Authentication authentication
+    ) throws UserException {
+        urlValidateService.validatePathVariableByLogin(
+                authentication,login
+        );
+        ModelAndView modelAndView = new ModelAndView(doctorHtml);
+        User userByLogin = userDBService.findUserByLogin(login);
+
+        modelAndView.addObject("user", userByLogin);
+        return modelAndView;
     }
 
-    @GetMapping("${url.doctor}")
-    public String getDoctorTemplate() {
-        return doctorHtml;
-    }
+    @GetMapping("${url.admin}"+ "/{login}")
+    public ModelAndView getAdminTemplate(
+            @PathVariable String login,
+            Authentication authentication
+    ) throws UserException {
+        urlValidateService.validatePathVariableByLogin(
+                authentication,login
+        );
+        ModelAndView modelAndView = new ModelAndView(adminHtml);
+        User userByLogin = userDBService.findUserByLogin(login);
 
+        modelAndView.addObject("user", userByLogin);
+        return modelAndView;
+    }
 }
