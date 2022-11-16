@@ -26,6 +26,7 @@ class DoctorJpaRepositoryIntegrationTest {
 
     @Test
     void deleteDoctorByIdTest() {
+        doctorJpaRepository.deleteDoctorById(1L);
 /*        Doctor doctorById = doctorJpaRepository.findDoctorById(1L);
         User user = doctorById.getUser();
         Patient patient = user.getPatient();
