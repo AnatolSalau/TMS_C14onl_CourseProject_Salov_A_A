@@ -13,8 +13,20 @@
     <script type="module" th:src="@{/js/defaultMain.js}"></script>
 </head>
 <body>
-<div id="wrapper">
-    <div class="hello"> Index template</div>
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Index template</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Start page</h6>
+            <p class="card-text">For using app you must login or create account</p>
+            <button type="button"
+                    class="btn btn-primary"
+                    onclick="location.href = 'http://127.0.0.1:8080/login';"
+            >
+                Login or create account
+            </button>
+        </div>
+    </div>
 </div>
 </body>
 </html>

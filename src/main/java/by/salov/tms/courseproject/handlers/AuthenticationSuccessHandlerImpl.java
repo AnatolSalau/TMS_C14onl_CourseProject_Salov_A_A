@@ -33,8 +33,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException,
             ServletException {
-        Map<String, String[]> parameterMap = request.getParameterMap();
-        String[] logins = parameterMap.get("username");
+        String userLogin = authentication.getName();
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         /*Get list of User roles*/
@@ -44,7 +43,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 
         for (String role : rolesList) {
                 if (Role.ROLE_USER.toString().equals(role)) {
-                    response.sendRedirect(userUrl + "/" + logins[0]);
+                    response.sendRedirect(userUrl + "/" + userLogin);
                     break;
                 }
                 else if (Role.ROLE_DOCTOR.toString().equals(role)) {

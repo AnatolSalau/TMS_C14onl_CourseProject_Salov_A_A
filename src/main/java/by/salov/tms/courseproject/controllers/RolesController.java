@@ -2,9 +2,11 @@ package by.salov.tms.courseproject.controllers;
 
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.entities.User;
+import by.salov.tms.courseproject.exceptions.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,9 +31,19 @@ public class RolesController {
     private String patientHtml;
 
     @GetMapping("${url.user}" + "/{login}")
-    public ModelAndView getUserTemplate(@PathVariable String login) {
+    public ModelAndView getUserTemplate(
+            @PathVariable String login,
+            Authentication authentication
+    ) throws UserException {
+        /*Check current session login*/
+        String name = authentication.getName();
+        if (!name.equals(login)) {
+            throw new UserException("You can't switch to someone else's account");
+        }
+
         ModelAndView modelAndView = new ModelAndView(userHtml);
         User userByLogin = userDBService.findUserByLogin(login);
+
         modelAndView.addObject("user", userByLogin);
         return modelAndView;
     }
