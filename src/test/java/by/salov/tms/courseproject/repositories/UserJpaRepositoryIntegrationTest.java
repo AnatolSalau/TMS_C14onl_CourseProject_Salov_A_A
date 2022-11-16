@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -25,5 +27,12 @@ class UserJpaRepositoryIntegrationTest {
                 "Anatoly", "Salov", "1111", "anatoly", Role.ROLE_USER
         );
         userJpaRepository.save(newUser);
+    }
+
+    @Test
+    void findUserByLoginTest() {
+        User vika = userJpaRepository.findUserByLogin("vika").orElse(null);
+        System.out.println(vika);
+
     }
 }
