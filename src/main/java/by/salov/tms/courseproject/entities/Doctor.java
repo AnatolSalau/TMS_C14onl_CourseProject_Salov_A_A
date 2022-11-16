@@ -23,10 +23,11 @@ public class Doctor {
     private Long id;
 
     @OneToOne (fetch = FetchType.EAGER, cascade = {
-        CascadeType.ALL
+        CascadeType.MERGE
     })
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"))
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private User user;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
@@ -40,8 +41,7 @@ public class Doctor {
     @EqualsAndHashCode.Exclude
     private Set<Patient> patients = new HashSet<>();
 
-    public Doctor(Long id, User user) {
-        this.id = id;
+    public Doctor(User user) {
         this.user = user;
     }
 }

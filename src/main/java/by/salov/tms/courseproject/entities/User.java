@@ -45,12 +45,12 @@ public class User extends People {
     )
     private Set<UserRole> userRoles = new HashSet<>();
 
-    @ToString.Exclude
+
     @EqualsAndHashCode.Exclude
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Doctor doctor;
 
-    @ToString.Exclude
+
     @EqualsAndHashCode.Exclude
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Patient patient;
