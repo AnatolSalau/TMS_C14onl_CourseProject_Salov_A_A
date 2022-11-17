@@ -32,15 +32,14 @@ public class UserRole {
     @ManyToMany(
             cascade = {
                     CascadeType.MERGE,
-                    CascadeType.REFRESH,
-                    CascadeType.DETACH
+                    CascadeType.PERSIST
             },
             fetch = FetchType.EAGER
     )
     @JoinTable(
             name = "users_roles",
-            joinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id") ,
-            inverseJoinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id")
+            inverseJoinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id") ,
+            joinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id")
     )
     private Set<User> users = new HashSet<>();
 

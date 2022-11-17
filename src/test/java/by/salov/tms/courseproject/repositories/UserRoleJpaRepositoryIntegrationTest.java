@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,29 +26,30 @@ class UserRoleJpaRepositoryIntegrationTest {
 
     @Test
     void deleteUserRoleByIdTest() {
-        Long id = 3L;
+
+    }
+
+    @Test
+    void deleteUserRoleTest() {
         User user = userJpaRepository.findUserByLogin("anatoly1").orElse(null);
         System.out.println(user);
-        Set<UserRole> userRoles = user.getUserRoles();
-        System.out.println(userRoles);
-        userRoles.forEach(
-                userRole -> {
-                    if (userRole.getId() == 3L) {
-                        userRoles.remove(userRole);
-                    }
-                }
-        );
-        System.out.println(userRoles);
+        UserRole userRoleByRole = user.getUserRoleByRole(Role.ROLE_DOCTOR);
+        System.out.println(userRoleByRole);
+        user.removeUserRole(Role.ROLE_DOCTOR);
+        System.out.println(user);
         userJpaRepository.save(user);
-        User user2 = userJpaRepository.findUserByLogin("anatoly1").orElse(null);
-        System.out.println(user2);
-        userRoleJpaRepository.deleteUserRoleById(id);
     }
 
     @Test
     void saveUserRoleTest() {
         User user = userJpaRepository.findUserByLogin("anatoly1").orElse(null);
-        UserRole userRole = new UserRole(Role.ROLE_DOCTOR,user);
-        userRoleDBService.saveUserRole(userRole);
+        user.addUserRole(new UserRole(Role.ROLE_DOCTOR));
+        userJpaRepository.save(user);
+    }
+
+    @Test
+    void finduserRoleByIdTest() {
+        UserRole userRoleById = userRoleJpaRepository.findUserRoleById(2L);
+        System.out.println(userRoleById);
     }
 }

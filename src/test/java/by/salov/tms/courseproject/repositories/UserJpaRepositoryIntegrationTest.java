@@ -24,7 +24,7 @@ class UserJpaRepositoryIntegrationTest {
     @Test
     void saveUserTest() {
         User newUser = new User(
-                "Anatoly", "Salov", "1111", "anatoly", Role.ROLE_USER
+                "Anatoly", "Salov", "1111", "anatoly1", Role.ROLE_USER
         );
         userJpaRepository.save(newUser);
     }
@@ -33,6 +33,5 @@ class UserJpaRepositoryIntegrationTest {
     void findUserByLoginTest() {
         User vika = userJpaRepository.findUserByLogin("vika").orElse(null);
         System.out.println(vika);
-
     }
 }

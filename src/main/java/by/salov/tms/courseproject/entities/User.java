@@ -32,9 +32,12 @@ public class User extends People {
     @Column(nullable = false)
     private String password;
 
-    @EqualsAndHashCode.Exclude
+    /*@EqualsAndHashCode.Exclude*/
     @ManyToMany(
-            cascade = {CascadeType.ALL},
+            cascade = {
+                    CascadeType.MERGE,
+                    CascadeType.PERSIST
+            },
             fetch = FetchType.EAGER
     )
     @JoinTable(
@@ -68,4 +71,24 @@ public class User extends People {
         this.login = login;
     }
 
+    public void addUserRole(UserRole userRole) {
+        this.userRoles.add(userRole);
+        userRole.getUsers().add(this);
+    }
+
+    public void removeUserRole(Role role) {
+        UserRole userRoleDB = getUserRoleByRole(role);
+        userRoleDB.getUsers().remove(this);
+        this.userRoles.remove(userRoleDB);
+    }
+
+    public UserRole getUserRoleByRole(Role role) {
+        UserRole result = null;
+        for (UserRole userRole : this.getUserRoles()) {
+            if(userRole.getRoleName().equals(role.toString())) {
+                result = userRole;
+            }
+        }
+        return result;
+    }
 }
