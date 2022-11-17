@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="User Doctor Patient templates">
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Save doctor through merge">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserRoleDBService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepositoryIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/DoctorDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/DoctorDBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/DoctorJpaRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/repositories/DoctorJpaRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/UserRoleJpaRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,14 +132,14 @@
       <recent name="by.salov.tms.courseproject.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DoctorJpaRepositoryIntegrationTest.saveDoctorTest">
+  <component name="RunManager" selected="Spring Boot.TmsC14onlCourseprojectSalovAAApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DoctorJpaRepositoryIntegrationTest.deleteDoctorByIdTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserRoleJpaRepositoryIntegrationTest.deleteUserRoleByIdTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -152,7 +152,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.repositories.DoctorJpaRepositoryIntegrationTest.deleteDoctorByIdTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.repositories.UserRoleJpaRepositoryIntegrationTest.deleteUserRoleByIdTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -162,7 +162,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DoctorJpaRepositoryIntegrationTest.saveDoctorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserRoleJpaRepositoryIntegrationTest.saveUserRoleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -175,53 +175,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.repositories.DoctorJpaRepositoryIntegrationTest.saveDoctorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserJpaRepositoryIntegrationTest.findUserByLoginTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.repositories.UserJpaRepositoryIntegrationTest.findUserByLoginTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserJpaRepositoryIntegrationTest.saveUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.repositories.UserJpaRepositoryIntegrationTest.saveUserTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.repositories.UserRoleJpaRepositoryIntegrationTest.saveUserRoleTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -262,11 +216,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DoctorJpaRepositoryIntegrationTest.saveDoctorTest" />
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
-        <item itemvalue="Gradle.UserJpaRepositoryIntegrationTest.findUserByLoginTest" />
-        <item itemvalue="Gradle.UserJpaRepositoryIntegrationTest.saveUserTest" />
-        <item itemvalue="Gradle.DoctorJpaRepositoryIntegrationTest.deleteDoctorByIdTest" />
+        <item itemvalue="Gradle.UserRoleJpaRepositoryIntegrationTest.deleteUserRoleByIdTest" />
+        <item itemvalue="Gradle.UserRoleJpaRepositoryIntegrationTest.saveUserRoleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -458,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668600703266</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Save doctor through merge">
+      <created>1668666488963</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668666488963</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +450,8 @@
     <MESSAGE value="Add Patient" />
     <MESSAGE value="Exception handler" />
     <MESSAGE value="User Doctor Patient templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Doctor Patient templates" />
+    <MESSAGE value="Save doctor through merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save doctor through merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

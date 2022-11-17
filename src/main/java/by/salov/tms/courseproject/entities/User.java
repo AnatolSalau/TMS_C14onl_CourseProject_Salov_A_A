@@ -32,7 +32,6 @@ public class User extends People {
     @Column(nullable = false)
     private String password;
 
-    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToMany(
             cascade = {CascadeType.ALL},

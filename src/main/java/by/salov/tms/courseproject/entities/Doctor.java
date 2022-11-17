@@ -23,7 +23,7 @@ public class Doctor {
     private Long id;
 
     @OneToOne (fetch = FetchType.EAGER, cascade = {
-        CascadeType.MERGE,
+            CascadeType.MERGE,
             CascadeType.REFRESH,
             CascadeType.DETACH
     })

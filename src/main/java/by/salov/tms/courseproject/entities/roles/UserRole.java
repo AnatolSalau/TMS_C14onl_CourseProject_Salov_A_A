@@ -30,7 +30,11 @@ public class UserRole {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToMany(
-            cascade = {CascadeType.ALL},
+            cascade = {
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.DETACH
+            },
             fetch = FetchType.EAGER
     )
     @JoinTable(
@@ -42,5 +46,9 @@ public class UserRole {
 
     public UserRole (Role role) {
         this.roleName = role.toString();
+    }
+    public UserRole (Role role, User user) {
+        this.roleName = role.toString();
+        this.users.add(user);
     }
 }
