@@ -11,7 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode()
+@EqualsAndHashCode(of = "roleName")
 @ToString
 
 @Entity
@@ -28,26 +28,24 @@ public class UserRole {
     private  String roleName;
 
     @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     @ManyToMany(
             cascade = {
                     CascadeType.MERGE,
-/*                    CascadeType.PERSIST*/
+                    CascadeType.PERSIST,
+                    CascadeType.REMOVE
             },
             fetch = FetchType.EAGER
+/*            fetch = FetchType.EAGER,
+            mappedBy = "userRoles"*/
     )
-/*    @JoinTable(
+    @JoinTable(
             name = "users_roles",
-            inverseJoinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id") ,
-            joinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id")
-    )*/
+            joinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id") ,
+            inverseJoinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id")
+    )
     private Set<User> users = new HashSet<>();
 
     public UserRole (Role role) {
         this.roleName = role.toString();
-    }
-    public UserRole (Role role, User user) {
-        this.roleName = role.toString();
-        this.users.add(user);
     }
 }

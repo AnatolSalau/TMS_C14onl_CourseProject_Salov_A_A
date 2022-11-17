@@ -14,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode()
+@EqualsAndHashCode(of = "login")
 @ToString
 
 @Entity
@@ -32,11 +32,11 @@ public class User extends People {
     @Column(nullable = false)
     private String password;
 
-    /*@EqualsAndHashCode.Exclude*/
     @ManyToMany(
             cascade = {
                     CascadeType.MERGE,
-                    CascadeType.PERSIST
+                    CascadeType.PERSIST,
+                    CascadeType.REMOVE
             },
             fetch = FetchType.EAGER
     )
@@ -48,12 +48,11 @@ public class User extends People {
     private Set<UserRole> userRoles = new HashSet<>();
 
 
-    @EqualsAndHashCode.Exclude
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Doctor doctor;
 
 
-    @EqualsAndHashCode.Exclude
+
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Patient patient;
 
@@ -70,25 +69,18 @@ public class User extends People {
         this.password = password;
         this.login = login;
     }
-
     public void addUserRole(UserRole userRole) {
-        this.userRoles.add(userRole);
         userRole.getUsers().add(this);
+        userRoles.add(userRole);
     }
 
-    public void removeUserRole(Role role) {
-        UserRole userRoleDB = getUserRoleByRole(role);
-        userRoleDB.getUsers().remove(this);
-        this.userRoles.remove(userRoleDB);
-    }
-
-    public UserRole getUserRoleByRole(Role role) {
-        UserRole result = null;
-        for (UserRole userRole : this.getUserRoles()) {
-            if(userRole.getRoleName().equals(role.toString())) {
-                result = userRole;
-            }
-        }
-        return result;
+    public void removeUserRole(UserRole userRole) {
+        this.userRoles.remove(userRole);
+        this.userRoles.forEach(
+                role-> {
+                    role.getUsers().remove(this);
+                }
+        );
+        userRole.getUsers().remove(this);
     }
 }
