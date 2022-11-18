@@ -24,9 +24,19 @@ public class DoctorDBService {
     }
     public Doctor saveDoctorByUserLogin(String login) {
         User userByLogin = userJpaRepository.findUserByLogin(login).orElse(null);
-        Doctor newDoctor = new Doctor(userByLogin);
-        Doctor savedDoctor = doctorJpaRepository.save(newDoctor);
-        return savedDoctor;
+        if(userHasDoctor(userByLogin)) {
+            return userByLogin.getDoctor();
+        } else {
+            Doctor newDoctor = new Doctor(userByLogin);
+            Doctor savedDoctor = doctorJpaRepository.save(newDoctor);
+            return savedDoctor;
+        }
+    }
+    private boolean userHasDoctor(User user) {
+        if(user.getDoctor() == null) {
+            return false;
+        }
+        return true;
     }
 
 }
