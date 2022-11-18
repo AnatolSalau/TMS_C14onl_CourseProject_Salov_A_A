@@ -5,6 +5,7 @@ import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.repositories.DoctorJpaRepository;
 import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -23,7 +24,9 @@ public class DoctorDBService {
         return savedDoctor;
     }
     public Doctor saveDoctorByUserLogin(String login) {
-        User userByLogin = userJpaRepository.findUserByLogin(login).orElse(null);
+        User userByLogin = userJpaRepository.findUserByLogin(login).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + login + " not found")
+        );
         if(userHasDoctor(userByLogin)) {
             return userByLogin.getDoctor();
         } else {
