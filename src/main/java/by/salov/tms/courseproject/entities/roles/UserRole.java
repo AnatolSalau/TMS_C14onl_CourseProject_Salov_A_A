@@ -11,7 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "roleName")
+@EqualsAndHashCode()
 @ToString
 
 @Entity
@@ -27,16 +27,13 @@ public class UserRole {
     @Column(name = "role",nullable = false)
     private  String roleName;
 
+    @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @ManyToMany(
             cascade = {
                     CascadeType.MERGE,
-                    CascadeType.PERSIST,
-                    CascadeType.REMOVE
             },
             fetch = FetchType.EAGER
-/*            fetch = FetchType.EAGER,
-            mappedBy = "userRoles"*/
     )
     @JoinTable(
             name = "users_roles",
@@ -47,5 +44,9 @@ public class UserRole {
 
     public UserRole (Role role) {
         this.roleName = role.toString();
+    }
+    public UserRole (Role role, User user) {
+        this.roleName = role.toString();
+        this.users.add(user);
     }
 }

@@ -34,9 +34,7 @@ public class User extends People {
 
     @ManyToMany(
             cascade = {
-                    CascadeType.MERGE,
-                    CascadeType.PERSIST,
-                    CascadeType.REMOVE
+                    CascadeType.ALL
             },
             fetch = FetchType.EAGER
     )
@@ -50,7 +48,6 @@ public class User extends People {
 
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Doctor doctor;
-
 
 
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
@@ -68,19 +65,5 @@ public class User extends People {
         this.userRoles.add(new UserRole(role));
         this.password = password;
         this.login = login;
-    }
-    public void addUserRole(UserRole userRole) {
-        userRole.getUsers().add(this);
-        userRoles.add(userRole);
-    }
-
-    public void removeUserRole(UserRole userRole) {
-        this.userRoles.remove(userRole);
-        this.userRoles.forEach(
-                role-> {
-                    role.getUsers().remove(this);
-                }
-        );
-        userRole.getUsers().remove(this);
     }
 }
