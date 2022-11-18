@@ -2,8 +2,9 @@ package by.salov.tms.courseproject.controllers;
 
 import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
-import by.salov.tms.courseproject.entities.Doctor;
+import by.salov.tms.courseproject.dao.UserRoleDBService;
 import by.salov.tms.courseproject.entities.User;
+import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.UrlValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class RolesController {
     private UserDBService userDBService;
 
     @Autowired
+    private UserRoleDBService userRoleDBService;
+
+    @Autowired
     private DoctorDBService doctorDBService;
 
     @Autowired
@@ -39,6 +43,9 @@ public class RolesController {
 
     @Value("${url.user}")
     private String userUrl;
+
+    @Value("${url.doctor}")
+    private String doctorUrl;
     @Value("${html.admin}")
     private String adminHtml;
     @Value("${html.doctor}")
@@ -62,13 +69,19 @@ public class RolesController {
         return modelAndView;
     }
     @PostMapping("${url.user}" + "/adddoctor")
-    RedirectView addDoctorToUser(
+    RedirectView addDoctorRoleToUser(
             HttpServletResponse httpServletResponse,
             Authentication authentication
     ) throws UserException {
         String login = authentication.getName();
+
+
         doctorDBService.saveDoctorByUserLogin(login);
-        return new RedirectView("/" + userUrl + "/" + login);
+        User userByLogin = userDBService.findUserByLogin(login);
+
+
+        userRoleDBService.addRoleToUser(Role.ROLE_DOCTOR, userByLogin);
+        return new RedirectView("/" + doctorUrl + "/" + login);
     }
 
     @GetMapping("${url.patient}" + "/{login}")

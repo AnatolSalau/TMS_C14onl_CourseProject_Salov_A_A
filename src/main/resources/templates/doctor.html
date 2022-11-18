@@ -18,13 +18,19 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User</a>
+                    <a class="nav-link " aria-current="true" th:href="@{|/user/${user.getLogin}|}">User</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">Doctor</a>
+                <li class="nav-item" th:if="${user.getDoctor != null}">
+                    <a class="nav-link active" th:href="@{|/doctor/${user.getLogin}|}">Doctor</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" >Patient</a>
+                <li class="nav-item" th:if="${user.getDoctor == null}">
+                    <a class="nav-link disabled">Doctor</a>
+                </li>
+                <li class="nav-item" th:if="${user.getPatient != null}">
+                    <a class="nav-link" th:href="@{|/patient/${user.getLogin}|}" >Patient</a>
+                </li>
+                <li class="nav-item" th:if="${user.getPatient == null}">
+                    <a class="nav-link disabled">Patient</a>
                 </li>
             </ul>
             <form th:action="@{/logout}" method="post" id="userAccLogout">
@@ -32,10 +38,34 @@
                     Logout
                 </button>
             </form>
+
         </div>
         <div class="card-body">
             <h5 class="card-title">User template</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+            <form th:action="@{/user/adddoctor}" method="post">
+                <button type="submit" class="btn btn-primary" >
+                    Add doctor
+                </button>
+            </form>
+            <form th:action="@{/user/deletedoctor}" method="post">
+                <button type="submit" class="btn btn-primary" >
+                    Delete doctor
+                </button>
+            </form>
+
+            <form th:action="@{/user/addpatient}" method="post">
+                <button type="submit" class="btn btn-primary" >
+                    Add patient
+                </button>
+            </form>
+            <form th:action="@{/user/deletepatient}" method="post">
+                <button type="submit" class="btn btn-primary" >
+                    Delete patient
+                </button>
+            </form>
+
             <div class="card">
                 <div class="card-body" th:text="${user}">
                 </div>

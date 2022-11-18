@@ -18,16 +18,16 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="true" href="#">User</a>
+                        <a class="nav-link active" aria-current="true" th:href="@{|/user/${user.getLogin}|}">User</a>
                     </li>
                     <li class="nav-item" th:if="${user.getDoctor != null}">
-                        <a class="nav-link" href="#">Doctor</a>
+                        <a class="nav-link" th:href="@{|/doctor/${user.getLogin}|}">Doctor</a>
                     </li>
                     <li class="nav-item" th:if="${user.getDoctor == null}">
                         <a class="nav-link disabled">Doctor</a>
                     </li>
                     <li class="nav-item" th:if="${user.getPatient != null}">
-                        <a class="nav-link" href="#" >Patient</a>
+                        <a class="nav-link" th:href="@{|/patient/${user.getLogin}|}" >Patient</a>
                     </li>
                     <li class="nav-item" th:if="${user.getPatient == null}">
                         <a class="nav-link disabled">Patient</a>
