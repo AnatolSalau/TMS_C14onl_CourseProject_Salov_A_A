@@ -1,8 +1,10 @@
 package by.salov.tms.courseproject;
 
+import by.salov.tms.courseproject.dao.UserRoleDBService;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.entities.roles.UserRole;
+import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import by.salov.tms.courseproject.repositories.UserRoleJpaRepository;
 import org.junit.jupiter.api.Test;
@@ -21,6 +23,9 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
 
     @Autowired
     private UserRoleJpaRepository userRoleJpaRepository;
+
+    @Autowired
+    private UserRoleDBService userRoleDBService;
 
     private User userAnatoly = new User(
             "FirstAnatoly",
@@ -65,5 +70,13 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
         userRoles.remove(deletedUserRoleFromUser);
         userJpaRepository.save(userByLogin);
         userRoleJpaRepository.deleteUserRoleById(idDeletedRole);
+    }
+
+    @Test
+    public void addRoleToUser() throws UserException {
+        User anatoly = userJpaRepository.findUserByLogin("anatoly").orElse(null);
+        Role doctorRole = Role.ROLE_DOCTOR;
+        userRoleDBService.addRoleToUser(doctorRole,anatoly);
+
     }
 }

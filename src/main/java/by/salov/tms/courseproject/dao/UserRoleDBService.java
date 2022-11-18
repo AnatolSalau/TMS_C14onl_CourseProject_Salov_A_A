@@ -22,10 +22,18 @@ public class UserRoleDBService {
 
     public UserRole addRoleToUser(Role role, User user) throws UserException {
         User userByLogin = findUserByLogin(user.getLogin());
-        UserRole newUserRole = new UserRole(role,userByLogin);
-        userJpaRepository.save(userByLogin);
-        UserRole savedUserRole = userRoleJpaRepository.save(newUserRole);
-        return savedUserRole;
+
+        if (isRoleInDB(role)) {
+            UserRole userRoleFromDB = userRoleJpaRepository.findUserRoleByRoleName(role.toString());
+            userByLogin.getUserRoles().add(userRoleFromDB);
+            userJpaRepository.save(userByLogin);
+            return userRoleFromDB;
+        } else {
+            UserRole newUserRole = new UserRole(role, user);
+            userJpaRepository.save(userByLogin);
+            userRoleJpaRepository.save(newUserRole);
+            return userRoleJpaRepository.findUserRoleByRoleName(role.toString());
+        }
     }
 
     public UserRole deleteRoleFromUserByRoleName(Role role, User user) throws UserException {
@@ -56,5 +64,14 @@ public class UserRoleDBService {
                 () -> new UserException("User with login" + login + "not found")
         );
         return userFromDB;
+    }
+
+    private boolean isRoleInDB (Role role) {
+        String roleName = role.toString();
+        UserRole userFromDB = userRoleJpaRepository.findUserRoleByRoleName(roleName);
+        if(userFromDB == null) {
+            return false;
+        }
+        return true;
     }
 }
