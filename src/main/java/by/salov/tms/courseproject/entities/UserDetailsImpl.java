@@ -1,6 +1,9 @@
 package by.salov.tms.courseproject.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.mapping.Array;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +16,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 public class UserDetailsImpl implements UserDetails {
 
     private final String login;

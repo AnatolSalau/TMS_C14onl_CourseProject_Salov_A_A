@@ -9,6 +9,7 @@ import by.salov.tms.courseproject.repositories.UserRoleJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -20,18 +21,21 @@ public class UserRoleDBService {
     @Autowired
     private UserJpaRepository userJpaRepository;
 
-    public UserRole addRoleToUser(Role role, User user) throws UserException {
-        User userByLogin = findUserByLogin(user.getLogin());
+    public UserRole addRoleToUser(Role role, String login) throws UserException {
+
 
         if (isRoleInDB(role)) {
+            User userByLogin = findUserByLogin(login);
             UserRole userRoleFromDB = userRoleJpaRepository.findUserRoleByRoleName(role.toString());
             userByLogin.getUserRoles().add(userRoleFromDB);
             userJpaRepository.save(userByLogin);
             return userRoleFromDB;
         } else {
-            UserRole newUserRole = new UserRole(role, user);
-            userJpaRepository.save(userByLogin);
+            User userByLogin = findUserByLogin(login);
+            UserRole newUserRole = new UserRole(role, userByLogin);
             userRoleJpaRepository.save(newUserRole);
+            userByLogin.getUserRoles().add(userRoleJpaRepository.findUserRoleByRoleName(role.toString()));
+            userJpaRepository.save(userByLogin);
             return userRoleJpaRepository.findUserRoleByRoleName(role.toString());
         }
     }

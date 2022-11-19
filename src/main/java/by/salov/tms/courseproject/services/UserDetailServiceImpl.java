@@ -25,17 +25,24 @@ public class UserDetailServiceImpl implements UserDetailsService {
         User user = userJpaRepository.findUserByLogin(username).orElseThrow(
                 () -> new UsernameNotFoundException(username)
         );
+        System.out.println(user);
 
         Set<UserRole> userRoles = user.getUserRoles();
+        System.out.println(userRoles);
 
         List<String> userRoleNames = userRoles.stream()
                 .map(UserRole::getRoleName)
                 .toList();
+        System.out.println(userRoleNames);
 
-        return new UserDetailsImpl(
-               user.getLogin(),
-               user.getPassword(),
-               userRoleNames
+        UserDetailsImpl userDetails = new UserDetailsImpl(
+                user.getLogin(),
+                user.getPassword(),
+                userRoleNames
         );
+        System.out.println(userDetails);
+        return userDetails;
     }
+
+
 }

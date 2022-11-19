@@ -4,6 +4,7 @@ import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.entities.roles.UserRole;
+import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.UserValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,7 +57,7 @@ public class CreateAccountController {
             @RequestParam(name = "password") String password,
             @RequestParam(name = "firstname") String firstname,
             @RequestParam(name = "secondname") String secondname
-    ) {
+    ) throws UserException {
         ModelAndView modelAndView = new ModelAndView(createAccountHtml);
         User newUser = null;
         if (login == null ||

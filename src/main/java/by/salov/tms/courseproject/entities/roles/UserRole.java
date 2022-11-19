@@ -33,13 +33,14 @@ public class UserRole {
             cascade = {
                     CascadeType.MERGE,
             },
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            mappedBy = "userRoles"
     )
-    @JoinTable(
+/*    @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id") ,
             inverseJoinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id")
-    )
+    )*/
     private Set<User> users = new HashSet<>();
 
     public UserRole (Role role) {

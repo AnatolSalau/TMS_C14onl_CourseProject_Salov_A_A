@@ -14,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode(of = "login")
+@EqualsAndHashCode()
 @ToString
 
 @Entity

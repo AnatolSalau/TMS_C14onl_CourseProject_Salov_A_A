@@ -1,19 +1,28 @@
 package by.salov.tms.courseproject.dao;
 
 import by.salov.tms.courseproject.entities.User;
+import by.salov.tms.courseproject.entities.roles.Role;
+import by.salov.tms.courseproject.entities.roles.UserRole;
+import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.repositories.UserJpaRepository;
+import by.salov.tms.courseproject.repositories.UserRoleJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
 public class UserDBService  {
     @Autowired
     private UserJpaRepository userJpaRepository;
+    @Autowired
+    private UserRoleDBService userRoleDBService;
+    @Autowired
+    private UserRoleJpaRepository userRoleJpaRepository;
 
     public Map<Long,User> findAllUsersMap() {
         Map<Long,User> usersMap = null;
