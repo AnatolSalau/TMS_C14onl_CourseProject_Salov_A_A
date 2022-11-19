@@ -74,8 +74,17 @@ public class CreateAccountController {
 
         }
         if (userValidateService.validateUserByLogin(newUser)) {
-            userDBService.saveUser(newUser);
+            User user = userDBService.saveUser(newUser);
+            String login1 = user.getLogin();
+            boolean matches = bCryptPasswordEncoder.matches(password, user.getPassword());
+            if(matches) {
+                modelAndView.addObject("password", password);
+            }
+            else {
+                modelAndView.addObject("password", "password doesn't match");
+            }
             modelAndView.addObject("accountCreateSuccessful", true);
+            modelAndView.addObject("login", login1);
         }
         else {
             modelAndView.addObject("accountCreateSuccessful", false);

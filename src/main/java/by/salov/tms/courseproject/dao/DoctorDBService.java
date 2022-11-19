@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DoctorDBService {
@@ -35,6 +38,13 @@ public class DoctorDBService {
             return savedDoctor;
         }
     }
+    public Map<Long,Doctor> findAllDoctorsMap() {
+        Map<Long,Doctor> doctorsMap = null;
+        List<Doctor> all = doctorJpaRepository.findAll();
+        doctorsMap = all.stream().collect(Collectors.toMap(Doctor::getId, doctor -> doctor));
+        return doctorsMap;
+    }
+
     private boolean userHasDoctor(User user) {
         if(user.getDoctor() == null) {
             return false;

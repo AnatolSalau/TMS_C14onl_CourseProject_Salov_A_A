@@ -3,7 +3,6 @@ package by.salov.tms.courseproject.controllers;
 import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
-import by.salov.tms.courseproject.entities.Doctor;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.exceptions.UserException;
@@ -26,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping(path = "/")
 @PropertySource("classpath:url_html.properties")
-public class RolesController {
+public class DoctorController {
 
     @Autowired
     private UserDBService userDBService;
@@ -42,33 +41,13 @@ public class RolesController {
     @Autowired
     private AuthoritiesUpdaterService authoritiesUpdaterService;
 
-    @Value("${html.user}")
-    private String userHtml;
-
     @Value("${url.user}")
     private String userUrl;
-    @Value("${html.admin}")
-    private String adminHtml;
     @Value("${html.doctor}")
     private String doctorHtml;
-    @Value("${html.patient}")
-    private String patientHtml;
 
-    @GetMapping("${url.user}" + "/{login}")
-    public ModelAndView getUserTemplate(
-            @PathVariable String login,
-            Authentication authentication
-    ) throws UserException {
-        urlValidateService.validatePathVariableByLogin(
-                authentication,login
-        );
 
-        ModelAndView modelAndView = new ModelAndView(userHtml);
-        User userByLogin = userDBService.findUserByLogin(login);
 
-        modelAndView.addObject("user", userByLogin);
-        return modelAndView;
-    }
     @PostMapping("${url.user}" + "/adddoctor")
     RedirectView addDoctorToUser(
             HttpServletResponse httpServletResponse,
@@ -85,20 +64,6 @@ public class RolesController {
         return new RedirectView("/" + userUrl + "/" + login);
     }
 
-    @GetMapping("${url.patient}" + "/{login}")
-    public ModelAndView getPatientTemplate(
-            @PathVariable String login,
-            Authentication authentication
-    ) throws UserException {
-        urlValidateService.validatePathVariableByLogin(
-                authentication,login
-        );
-        ModelAndView modelAndView = new ModelAndView(patientHtml);
-        User userByLogin = userDBService.findUserByLogin(login);
-
-        modelAndView.addObject("user", userByLogin);
-        return modelAndView;
-    }
 
 
     @GetMapping("${url.doctor}"+ "/{login}")
@@ -116,18 +81,4 @@ public class RolesController {
         return modelAndView;
     }
 
-    @GetMapping("${url.admin}"+ "/{login}")
-    public ModelAndView getAdminTemplate(
-            @PathVariable String login,
-            Authentication authentication
-    ) throws UserException {
-        urlValidateService.validatePathVariableByLogin(
-                authentication,login
-        );
-        ModelAndView modelAndView = new ModelAndView(adminHtml);
-        User userByLogin = userDBService.findUserByLogin(login);
-
-        modelAndView.addObject("user", userByLogin);
-        return modelAndView;
-    }
 }

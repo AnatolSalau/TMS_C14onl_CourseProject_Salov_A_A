@@ -13,4 +13,6 @@ public interface DoctorJpaRepository extends JpaRepository<Doctor,Long> {
     void deleteDoctorById(Long id);
     Doctor findDoctorById(Long id);
     Doctor findDoctorByUser (User User);
+
+    List<Doctor> findAll();
 }

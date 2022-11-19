@@ -42,7 +42,15 @@
         />
         <input type="submit"  class="btn btn-primary" value="Submit" form="newUser">
     </form>
+    <form name="loginForm" th:action="@{/login}" method="get"
+          th:if="${accountCreateSuccessful == true}"
+    >
+        <p class="h1">You successfully create account</p>
+        <p class="h3" th:text = "|Your login: ${login} | ">h2. Bootstrap heading</p>
+        <p class="h3" th:text = "|Your password: ${password} | ">h3. Bootstrap heading</p>
 
+        <input type="submit"  class="btn btn-primary" value="Submit">
+    </form>
 </div>
 </body>
 </html>

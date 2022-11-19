@@ -42,4 +42,8 @@ public class Patient {
     )
     @EqualsAndHashCode.Exclude
     private Set<Doctor> doctors = new HashSet<>();
+
+    public Patient(User user) {
+        this.user = user;
+    }
 }

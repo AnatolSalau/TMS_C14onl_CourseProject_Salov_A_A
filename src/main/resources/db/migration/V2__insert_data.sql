@@ -1,4 +1,4 @@
-/*INSERT INTO roles (id, role)
+INSERT INTO roles (id, role)
 VALUES  (-1, 'ROLE_ADMIN'),
         (-2, 'ROLE_DOCTOR'),
         (-3, 'ROLE_PATIENT'),
@@ -14,7 +14,7 @@ INSERT INTO users_roles (role_id, user_id)
 VALUES (-1,-1),
        (-2,-2),
        (-3,-3),
-       (-4,-4);*/
+       (-4,-4);
 
 /*
 INSERT INTO roles (id, role)

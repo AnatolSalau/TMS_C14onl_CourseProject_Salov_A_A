@@ -1,4 +1,4 @@
-/*CREATE TABLE IF NOT EXISTS roles (
+CREATE TABLE IF NOT EXISTS roles (
     id BIGINT NOT NULL PRIMARY KEY,
     role VARCHAR(255) NOT NULL
 );
@@ -50,4 +50,4 @@ CREATE TABLE IF NOT EXISTS doctors_patients (
                                            PRIMARY KEY (patient_id,doctor_id),
                                            CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id),
                                            CONSTRAINT fk_doctor_id FOREIGN KEY(doctor_id) REFERENCES patients(id)
-);*/
+);

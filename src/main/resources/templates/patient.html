@@ -18,13 +18,19 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">User</a>
+                    <a class="nav-link " aria-current="true" th:href="@{|/user/${user.getLogin}|}">User</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" >Doctor</a>
+                <li class="nav-item" th:if="${user.getDoctor != null}">
+                    <a class="nav-link " th:href="@{|/doctor/${user.getLogin}|}">Doctor</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="true" href="#">Patient</a>
+                <li class="nav-item" th:if="${user.getDoctor == null}">
+                    <a class="nav-link disabled">Doctor</a>
+                </li>
+                <li class="nav-item" th:if="${user.getPatient != null}">
+                    <a class="nav-link active" >Patient</a>
+                </li>
+                <li class="nav-item" th:if="${user.getPatient == null}">
+                    <a class="nav-link disabled">Patient</a>
                 </li>
             </ul>
             <form th:action="@{/logout}" method="post" id="userAccLogout">
@@ -32,9 +38,10 @@
                     Logout
                 </button>
             </form>
+
         </div>
         <div class="card-body">
-            <h5 class="card-title">User template</h5>
+            <h5 class="card-title">Patient template</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             <div class="card">
                 <div class="card-body" th:text="${user}">
