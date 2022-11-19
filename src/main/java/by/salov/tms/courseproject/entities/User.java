@@ -66,4 +66,10 @@ public class User extends People {
         this.password = password;
         this.login = login;
     }
+    public User(String firstName, String secondName, String password, String login, UserRole userRole) {
+        super(firstName, secondName);
+        this.userRoles.add(userRole);
+        this.password = password;
+        this.login = login;
+    }
 }

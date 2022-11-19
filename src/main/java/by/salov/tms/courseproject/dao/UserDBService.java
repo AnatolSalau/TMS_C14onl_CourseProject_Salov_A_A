@@ -40,8 +40,16 @@ public class UserDBService  {
     }
 
     public User saveUser(User user) {
-        User savedUser = userJpaRepository.save(user);
-        return savedUser;
+        UserRole userRoleFromDB = userRoleJpaRepository.findUserRoleByRoleName(Role.ROLE_USER.toString());
+        if(userRoleFromDB == null) {
+            User savedUser = userJpaRepository.save(user);
+            return savedUser;
+        } else {
+            user.getUserRoles().removeAll(user.getUserRoles());
+            user.getUserRoles().add(userRoleFromDB);
+            User savedUser = userJpaRepository.save(user);
+            return savedUser;
+        }
     }
 
     public User findUserByLogin(String login) {
