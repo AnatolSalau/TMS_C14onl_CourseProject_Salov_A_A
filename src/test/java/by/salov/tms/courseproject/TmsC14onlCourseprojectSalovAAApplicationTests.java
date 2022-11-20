@@ -1,5 +1,6 @@
 package by.salov.tms.courseproject;
 
+import by.salov.tms.courseproject.dao.PatientDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
 import by.salov.tms.courseproject.entities.User;
@@ -29,6 +30,9 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
 
     @Autowired
     private UserDBService userDBService;
+
+    @Autowired
+    private PatientDBService patientDBService;
 
     private User userAnatoly = new User(
             "FirstAnatoly",
@@ -93,5 +97,9 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
 
         User userAfter= userDBService.findUserByLogin(userAnatoly.getLogin());
         System.out.println(userAfter);
+    }
+
+    @Test void addDoctorToPatientTest() {
+        patientDBService.addDoctorToPatient("vika","anatoly");
     }
 }

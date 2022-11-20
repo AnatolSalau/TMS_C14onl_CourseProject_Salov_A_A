@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @NoArgsConstructor
 @Getter
@@ -22,6 +23,10 @@ public class Doctor {
     @Column(nullable = false)
     private Long id;
 
+/*
+    @Column()
+    private String isName = "DOCTOR";*/
+
     @OneToOne (fetch = FetchType.EAGER, cascade = {
             CascadeType.MERGE,
             CascadeType.REFRESH,
@@ -33,14 +38,10 @@ public class Doctor {
     private User user;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
-            CascadeType.ALL
-    })
-    @JoinTable(
-            name = "doctors_patients",
-            joinColumns = {@JoinColumn(name = "doctor_id")},
-            inverseJoinColumns = {@JoinColumn(name = "patient_id")}
-    )
+            CascadeType.PERSIST
+    }, mappedBy = "doctors")
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Set<Patient> patients = new HashSet<>();
 
     public Doctor(User user) {

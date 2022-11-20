@@ -1,6 +1,7 @@
 package by.salov.tms.courseproject.dao;
 
 import by.salov.tms.courseproject.entities.Doctor;
+import by.salov.tms.courseproject.entities.Patient;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.repositories.DoctorJpaRepository;
 import by.salov.tms.courseproject.repositories.UserJpaRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,10 +24,6 @@ public class DoctorDBService {
     @Autowired
     private UserJpaRepository userJpaRepository;
 
-    public Doctor saveDoctor(Doctor doctor) {
-        Doctor savedDoctor = doctorJpaRepository.save(doctor);
-        return savedDoctor;
-    }
     public Doctor saveDoctorByUserLogin(String login) {
         User userByLogin = userJpaRepository.findUserByLogin(login).orElseThrow(
                 () -> new UsernameNotFoundException("User with login: " + login + " not found")
@@ -43,6 +41,30 @@ public class DoctorDBService {
         List<Doctor> all = doctorJpaRepository.findAll();
         doctorsMap = all.stream().collect(Collectors.toMap(Doctor::getId, doctor -> doctor));
         return doctorsMap;
+    }
+
+    public void addPatientToDoctor(String patientLogin, String doctorLogin) {
+        User userPatientFromDB = userJpaRepository.findUserByLogin(patientLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + patientLogin + " not found")
+        );
+        User userDoctorFromDB = userJpaRepository.findUserByLogin(doctorLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + doctorLogin + " not found")
+        );
+        Patient patientFromDB = userPatientFromDB.getPatient();
+        Doctor doctorFromDB = userDoctorFromDB.getDoctor();
+        if (patientFromDB != null && doctorFromDB != null) {
+            patientFromDB.getDoctors().add(doctorFromDB);
+            doctorJpaRepository.save(doctorFromDB);
+        }
+    }
+    public Map<Long,Patient> getAllPatientsFromDoctor(String userLogin) {
+        User userByLogin = userJpaRepository.findUserByLogin(userLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + userLogin + " not found")
+        );
+        Set<Patient> patientSet = userByLogin.getDoctor().getPatients();
+        Map<Long, Patient> patientMap = patientSet.stream()
+                .collect(Collectors.toMap(Patient::getId, patient -> patient));
+        return patientMap;
     }
 
     private boolean userHasDoctor(User user) {

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,12 +22,6 @@ public class PatientDBService {
 
     @Autowired
     private PatientJpaRepository patientJpaRepository;
-
-    public Patient savePatient(Patient patient) {
-
-        Patient savedPatient = patientJpaRepository.save(patient);
-        return savedPatient;
-    }
 
     public Patient savePatientByUserLogin(String login) {
         User userByLogin = userJpaRepository.findUserByLogin(login).orElseThrow(
@@ -47,6 +42,33 @@ public class PatientDBService {
         patientsMap = all.stream().collect(Collectors.toMap(Patient::getId, patient -> patient));
         return patientsMap;
     }
+
+    public void addDoctorToPatient(String doctorLogin, String patientLogin) {
+
+        User userPatientFromDB = userJpaRepository.findUserByLogin(patientLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + patientLogin + " not found")
+        );
+        User userDoctorFromDB = userJpaRepository.findUserByLogin(doctorLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + doctorLogin + " not found")
+        );
+        Patient patientFromDB = userPatientFromDB.getPatient();
+        Doctor doctorFromDB = userDoctorFromDB.getDoctor();
+        if (patientFromDB != null && doctorFromDB != null) {
+            patientFromDB.getDoctors().add(doctorFromDB);
+            patientJpaRepository.save(patientFromDB);
+        }
+    }
+
+    public Map<Long,Doctor> getAllDoctorsFromPatient(String userLogin) {
+        User userByLogin = userJpaRepository.findUserByLogin(userLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + userLogin + " not found")
+        );
+        Set<Doctor> doctorSet = userByLogin.getPatient().getDoctors();
+        Map<Long, Doctor> doctorMap = doctorSet.stream()
+                .collect(Collectors.toMap(Doctor::getId, doctor -> doctor));
+        return doctorMap;
+    }
+
     private boolean userHasPatient(User user) {
         if(user.getPatient() == null) {
             return false;
