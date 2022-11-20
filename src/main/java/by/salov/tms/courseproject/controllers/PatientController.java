@@ -108,18 +108,18 @@ public class PatientController {
             @RequestParam(name = "addUserLogin", required = false) List<String> addUserLoginList,
             @RequestParam(name = "deleteUserLogin", required = false) List<String> deleteUserLoginList
     ) throws UserException {
-        String loginDoctor = authentication.getName();
+        String loginPatient = authentication.getName();
         if (addUserLoginList != null) {
-            for (String loginPatient : addUserLoginList) {
+            for (String loginDoctor : addUserLoginList) {
                 patientDBService.addDoctorToPatient(loginDoctor,loginPatient);
             }
         }
         if (deleteUserLoginList != null) {
-            for (String loginPatient : deleteUserLoginList) {
+            for (String loginDoctor : deleteUserLoginList) {
                 patientDBService.deleteDoctorFromPatient(loginDoctor,loginPatient);
             }
         }
-        return new RedirectView("/" + patientUrl + "/" + loginDoctor);
+        return new RedirectView("/" + patientUrl + "/" + loginPatient);
     }
 
 }
