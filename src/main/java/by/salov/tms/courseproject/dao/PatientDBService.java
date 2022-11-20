@@ -23,6 +23,9 @@ public class PatientDBService {
     @Autowired
     private PatientJpaRepository patientJpaRepository;
 
+    @Autowired
+    private DoctorJpaRepository doctorJpaRepository;
+
     public Patient savePatientByUserLogin(String login) {
         User userByLogin = userJpaRepository.findUserByLogin(login).orElseThrow(
                 () -> new UsernameNotFoundException("User with login: " + login + " not found")
@@ -69,6 +72,22 @@ public class PatientDBService {
         return doctorMap;
     }
 
+    public void deletePatientFromUser(String userLogin) {
+        User userByLogin = userJpaRepository.findUserByLogin(userLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + userLogin + " not found")
+        );
+        Patient patient = userByLogin.getPatient();
+        if(patient != null) {
+            Set<Doctor> doctors = patient.getDoctors();
+            for (Doctor doctor : doctors) {
+                doctor.getPatients().remove(patient);
+                doctorJpaRepository.save(doctor);
+            }
+            userByLogin.setPatient(null);
+            userJpaRepository.save(userByLogin);
+            patientJpaRepository.delete(patient);
+        }
+    }
     private boolean userHasPatient(User user) {
         if(user.getPatient() == null) {
             return false;

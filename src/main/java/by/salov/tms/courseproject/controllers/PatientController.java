@@ -66,6 +66,19 @@ public class PatientController {
         authoritiesUpdaterService.update(userByLogin2);
         return new RedirectView("/" + userUrl + "/" + login);
     }
+    @PostMapping("${url.user}" + "/deletepatient")
+    RedirectView addPatientToUser(
+            Authentication authentication
+    ){
+        String login = authentication.getName();
+        patientDBService.deletePatientFromUser(login);
+
+
+        User userByLogin = userDBService.findUserByLogin(login);
+
+        authoritiesUpdaterService.update(userByLogin);
+        return new RedirectView("/" + userUrl + "/" + login);
+    }
 
     @GetMapping("${url.patient}" + "/{login}")
     public ModelAndView getPatientTemplate(

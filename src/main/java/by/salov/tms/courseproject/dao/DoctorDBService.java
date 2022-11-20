@@ -79,10 +79,8 @@ public class DoctorDBService {
         if(doctor != null) {
             Set<Patient> doctorPatients = doctor.getPatients();
                 for (Patient patient : doctorPatients) {
-                    System.out.println(patient);
                     patient.getDoctors().remove(doctor);
                     patientJpaRepository.save(patient);
-                    System.out.println(patient);
                 }
             userByLogin.setDoctor(null);
             userJpaRepository.save(userByLogin);
