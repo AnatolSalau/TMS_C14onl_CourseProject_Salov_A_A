@@ -7,9 +7,9 @@
     <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="14 12 Sanday">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/doctor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/doctor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/patient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/DoctorDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/DoctorDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserRoleDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserRoleDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/TmsC14onlCourseprojectSalovAAApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/TmsC14onlCourseprojectSalovAAApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +147,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.addDoctorToPatientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -170,7 +193,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.changeUserRoles" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -183,7 +206,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.changeUserRoles&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromUserTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -193,7 +216,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleByRoleNameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleFromUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -206,30 +229,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleByRoleNameTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.saveUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.saveUserTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleFromUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -271,10 +271,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleFromUser" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromUserTest" />
         <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addDoctorToPatientTest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.saveUserTest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.changeUserRoles" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleByRoleNameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +293,7 @@
       <workItem from="1668765932278" duration="9920000" />
       <workItem from="1668842638268" duration="27952000" />
       <workItem from="1668879476388" duration="813000" />
-      <workItem from="1668937710521" duration="9832000" />
+      <workItem from="1668937710521" duration="14212000" />
     </task>
     <task id="LOCAL-00001" summary="Start commit">
       <created>1667565368250</created>
@@ -470,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668942749178</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="14 12 Sanday">
+      <created>1668947853764</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668947853764</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

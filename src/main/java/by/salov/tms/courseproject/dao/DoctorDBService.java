@@ -4,6 +4,7 @@ import by.salov.tms.courseproject.entities.Doctor;
 import by.salov.tms.courseproject.entities.Patient;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.repositories.DoctorJpaRepository;
+import by.salov.tms.courseproject.repositories.PatientJpaRepository;
 import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +24,9 @@ public class DoctorDBService {
 
     @Autowired
     private UserJpaRepository userJpaRepository;
+
+    @Autowired
+    private PatientJpaRepository patientJpaRepository;
 
     public Doctor saveDoctorByUserLogin(String login) {
         User userByLogin = userJpaRepository.findUserByLogin(login).orElseThrow(
@@ -65,6 +69,25 @@ public class DoctorDBService {
         Map<Long, Patient> patientMap = patientSet.stream()
                 .collect(Collectors.toMap(Patient::getId, patient -> patient));
         return patientMap;
+    }
+
+    public void deleteDoctorFromUser(String userLogin) {
+        User userByLogin = userJpaRepository.findUserByLogin(userLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + userLogin + " not found")
+        );
+        Doctor doctor = userByLogin.getDoctor();
+        if(doctor != null) {
+            Set<Patient> doctorPatients = doctor.getPatients();
+                for (Patient patient : doctorPatients) {
+                    System.out.println(patient);
+                    patient.getDoctors().remove(doctor);
+                    patientJpaRepository.save(patient);
+                    System.out.println(patient);
+                }
+            userByLogin.setDoctor(null);
+            userJpaRepository.save(userByLogin);
+            doctorJpaRepository.delete(doctor);
+        }
     }
 
     private boolean userHasDoctor(User user) {

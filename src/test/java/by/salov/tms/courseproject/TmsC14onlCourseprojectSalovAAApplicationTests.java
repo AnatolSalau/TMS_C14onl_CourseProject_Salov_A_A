@@ -1,5 +1,6 @@
 package by.salov.tms.courseproject;
 
+import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.PatientDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
@@ -30,6 +31,9 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
 
     @Autowired
     private UserDBService userDBService;
+
+    @Autowired
+    private DoctorDBService doctorDBService;
 
     @Autowired
     private PatientDBService patientDBService;
@@ -99,7 +103,18 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
         System.out.println(userAfter);
     }
 
-    @Test void addDoctorToPatientTest() {
+    @Test
+    void addDoctorToPatientTest() {
         patientDBService.addDoctorToPatient("vika","anatoly");
+    }
+
+    @Test
+    void deleteDoctorFromUserTest() {
+        doctorDBService.deleteDoctorFromUser("vika");
+    }
+
+    @Test
+    void deleteRoleFromUser() throws UserException {
+        userRoleDBService.deleteRoleFromUserByRole(Role.ROLE_DOCTOR, "vika");
     }
 }

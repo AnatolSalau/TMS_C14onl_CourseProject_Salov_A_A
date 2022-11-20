@@ -40,9 +40,9 @@ public class UserRoleDBService {
         }
     }
 
-    public UserRole deleteRoleFromUserByRoleName(Role role, User user) throws UserException {
+    public UserRole deleteRoleFromUserByRole(Role role, String userLogin) throws UserException {
         String roleName = role.toString();
-        User userByLogin = findUserByLogin(user.getLogin());
+        User userByLogin = findUserByLogin(userLogin);
         Set<UserRole> userRoles = userByLogin.getUserRoles();
         Long idDeletedRole = null;
         UserRole deletedUserRoleFromUser = null;

@@ -41,7 +41,6 @@ public class DoctorController {
     private PatientDBService patientDBService;
     @Autowired
     private UrlValidateService urlValidateService;
-
     @Autowired
     private AuthoritiesUpdaterService authoritiesUpdaterService;
 
@@ -54,7 +53,6 @@ public class DoctorController {
 
     @PostMapping("${url.user}" + "/adddoctor")
     RedirectView addDoctorToUser(
-            HttpServletResponse httpServletResponse,
             Authentication authentication
     ) throws UserException {
         String login = authentication.getName();
@@ -68,6 +66,19 @@ public class DoctorController {
         return new RedirectView("/" + userUrl + "/" + login);
     }
 
+    @PostMapping("${url.user}" + "/deletedoctor")
+    RedirectView deleteDoctorFromUser(
+            Authentication authentication
+    ) throws UserException {
+        String login = authentication.getName();
+        doctorDBService.deleteDoctorFromUser(login);
+        userRoleDBService.deleteRoleFromUserByRole(Role.ROLE_DOCTOR,login);
+
+        User userByLogin = userDBService.findUserByLogin(login);
+
+        authoritiesUpdaterService.update(userByLogin);
+        return new RedirectView("/" + userUrl + "/" + login);
+    }
 
 
     @GetMapping("${url.doctor}"+ "/{login}")
