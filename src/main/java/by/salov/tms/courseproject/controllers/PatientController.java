@@ -4,6 +4,8 @@ import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.PatientDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
+import by.salov.tms.courseproject.entities.Doctor;
+import by.salov.tms.courseproject.entities.Patient;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.exceptions.UserException;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/")
@@ -36,6 +39,8 @@ public class PatientController {
     @Autowired
     private PatientDBService patientDBService;
 
+    @Autowired
+    private DoctorDBService doctorDBService;
     @Autowired
     private UrlValidateService urlValidateService;
 
@@ -73,7 +78,14 @@ public class PatientController {
         ModelAndView modelAndView = new ModelAndView(patientHtml);
         User userByLogin = userDBService.findUserByLogin(login);
 
+        Map<Long, Doctor> allDoctorsFromPatient = patientDBService.getAllDoctorsFromPatient(login);
+        Map<Long, Doctor> allDoctorsMap = doctorDBService.findAllDoctorsMap();
+
+
         modelAndView.addObject("user", userByLogin);
+        modelAndView.addObject("allDoctorsMap", allDoctorsFromPatient);
+        modelAndView.addObject("allDoctorsFromPatient", allDoctorsFromPatient);
+
         return modelAndView;
     }
 
