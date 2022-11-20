@@ -32,6 +32,8 @@ public class User extends People {
     @Column(nullable = false)
     private String password;
 
+    @Column(name = "icon")
+    private byte[] icon;
     @ManyToMany(
             cascade = {
                     CascadeType.ALL

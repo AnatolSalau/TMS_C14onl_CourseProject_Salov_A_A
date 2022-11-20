@@ -70,7 +70,19 @@
                 <div class="card-body" th:text="${user}">
                 </div>
             </div>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="col">
+                <form th:action="@{|/user/${user.getLogin}/addicon|}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label" for="customFile">File input</label>
+                        <input type="file" class="form-control" id="customFile" name="icon"  />
+                        <button type="submit"  class="btn btn-success">Success</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <div th:if="${icon != null}">
+                    <img th:src="@{'data:image/png;base64,'+${pic}}">
+                </div>
         </div>
     </div>
 </div>

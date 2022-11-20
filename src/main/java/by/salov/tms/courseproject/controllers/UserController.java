@@ -4,7 +4,6 @@ import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
 import by.salov.tms.courseproject.entities.User;
-import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.AuthoritiesUpdaterService;
 import by.salov.tms.courseproject.services.UrlValidateService;
@@ -13,14 +12,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Base64;
 
 @Controller
 @RequestMapping(path = "/")
@@ -58,9 +56,26 @@ public class UserController {
 
         ModelAndView modelAndView = new ModelAndView(userHtml);
         User userByLogin = userDBService.findUserByLogin(login);
+        byte[] iconBytes = userByLogin.getIcon();
+        User userWithoutIcon = userByLogin;
+        userWithoutIcon.setIcon(new String("icon").getBytes());
 
-        modelAndView.addObject("user", userByLogin);
+        modelAndView.addObject("user", userWithoutIcon);
+        if(iconBytes != null) {
+            modelAndView.addObject("pic", Base64.getEncoder().encodeToString(iconBytes));
+        }
+
         return modelAndView;
     }
+    @PostMapping("${url.user}" + "/{login}" +"/addicon")
+    public RedirectView addIcon(
+            Authentication authentication,
+            @RequestParam(value = "icon") MultipartFile multipartFile
+    ) throws IOException {
+        String login = authentication.getName();
+        byte[] icon = multipartFile.getInputStream().readAllBytes();
+        userDBService.addIconToUser(login,icon);
 
+        return new RedirectView("/" + userUrl + "/" + login);
+    }
 }

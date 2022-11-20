@@ -23,10 +23,6 @@ public class Doctor {
     @Column(nullable = false)
     private Long id;
 
-/*
-    @Column()
-    private String isName = "DOCTOR";*/
-
     @OneToOne (fetch = FetchType.EAGER, cascade = {
             CascadeType.MERGE,
             CascadeType.REFRESH,

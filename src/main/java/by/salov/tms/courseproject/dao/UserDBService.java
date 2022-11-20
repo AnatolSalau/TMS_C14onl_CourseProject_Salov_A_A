@@ -58,4 +58,11 @@ public class UserDBService  {
         User userByLogin = userJpaRepository.findUserByLogin(loginTrimmedLowerCase).orElse(null);
             return userByLogin;
     }
+
+    public User addIconToUser(String login, byte[] icon) {
+        User userByLogin = userJpaRepository.findUserByLogin(login).orElse(null);
+        userByLogin.setIcon(icon);
+        User save = userJpaRepository.save(userByLogin);
+        return save;
+    }
 }
