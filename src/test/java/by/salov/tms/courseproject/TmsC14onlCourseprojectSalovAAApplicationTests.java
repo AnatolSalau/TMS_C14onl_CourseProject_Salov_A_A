@@ -104,11 +104,6 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
     }
 
     @Test
-    void addDoctorToPatientTest() {
-        patientDBService.addDoctorToPatient("vika","anatoly");
-    }
-
-    @Test
     void deleteDoctorFromUserTest() {
         doctorDBService.deleteDoctorFromUser("vika");
     }
@@ -116,5 +111,25 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
     @Test
     void deleteRoleFromUser() throws UserException {
         userRoleDBService.deleteRoleFromUserByRole(Role.ROLE_DOCTOR, "vika");
+    }
+    /*----------------------------------------------------------------------------------------------*/
+    @Test
+    void addDoctorToPatientTest() {
+        patientDBService.addDoctorToPatient("vika","anatoly");
+    }
+
+    @Test
+    void deleteDoctorFromPatientTest() {
+        patientDBService.deleteDoctorFromPatient("vika","anatoly");
+    }
+
+    @Test
+    void addPatientToDoctorTest() {
+        doctorDBService.addPatientToDoctor("anatoly", "vika");
+    }
+
+    @Test
+    void deletePatientFromDoctor() {
+        doctorDBService.deletePatientFromDoctor("anatoly", "vika");
     }
 }

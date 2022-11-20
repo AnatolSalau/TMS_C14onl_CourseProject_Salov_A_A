@@ -57,8 +57,8 @@ public class DoctorDBService {
         Patient patientFromDB = userPatientFromDB.getPatient();
         Doctor doctorFromDB = userDoctorFromDB.getDoctor();
         if (patientFromDB != null && doctorFromDB != null) {
-            doctorFromDB.getPatients().add(patientFromDB);
-            doctorJpaRepository.save(doctorFromDB);
+            patientFromDB.getDoctors().add(doctorFromDB);
+            patientJpaRepository.save(patientFromDB);
         }
     }
 
@@ -72,8 +72,8 @@ public class DoctorDBService {
         Patient patientFromDB = userPatientFromDB.getPatient();
         Doctor doctorFromDB = userDoctorFromDB.getDoctor();
         if (patientFromDB != null && doctorFromDB != null) {
-            doctorFromDB.getPatients().remove(patientFromDB);
-            doctorJpaRepository.delete(doctorFromDB);
+            patientFromDB.getDoctors().remove(doctorFromDB);
+            patientJpaRepository.delete(patientFromDB);
         }
     }
 
