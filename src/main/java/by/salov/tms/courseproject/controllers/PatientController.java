@@ -69,10 +69,10 @@ public class PatientController {
     @PostMapping("${url.user}" + "/deletepatient")
     RedirectView addPatientToUser(
             Authentication authentication
-    ){
+    ) throws UserException {
         String login = authentication.getName();
         patientDBService.deletePatientFromUser(login);
-
+        userRoleDBService.deleteRoleFromUserByRole(Role.ROLE_PATIENT,login);
 
         User userByLogin = userDBService.findUserByLogin(login);
 
