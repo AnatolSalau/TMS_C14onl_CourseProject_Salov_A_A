@@ -62,6 +62,20 @@ public class PatientDBService {
         }
     }
 
+    public void deleteDoctorFromPatient(String doctorLogin, String patientLogin) {
+        User userPatientFromDB = userJpaRepository.findUserByLogin(patientLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + patientLogin + " not found")
+        );
+        User userDoctorFromDB = userJpaRepository.findUserByLogin(doctorLogin).orElseThrow(
+                () -> new UsernameNotFoundException("User with login: " + doctorLogin + " not found")
+        );
+        Patient patientFromDB = userPatientFromDB.getPatient();
+        Doctor doctorFromDB = userDoctorFromDB.getDoctor();
+        if (patientFromDB != null && doctorFromDB != null) {
+            patientFromDB.getDoctors().remove(doctorFromDB);
+            patientJpaRepository.delete(patientFromDB);
+        }
+    }
     public Map<Long,Doctor> getAllDoctorsFromPatient(String userLogin) {
         User userByLogin = userJpaRepository.findUserByLogin(userLogin).orElseThrow(
                 () -> new UsernameNotFoundException("User with login: " + userLogin + " not found")

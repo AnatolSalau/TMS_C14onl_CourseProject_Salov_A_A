@@ -16,14 +16,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -51,6 +49,9 @@ public class PatientController {
     private String patientHtml;
     @Value("${url.user}")
     private String userUrl;
+
+    @Value("${url.patient}")
+    private String patientUrl;
     @PostMapping("${url.user}" + "/addpatient")
     RedirectView addPatientToUser(
             HttpServletResponse httpServletResponse,
@@ -101,6 +102,24 @@ public class PatientController {
 
         return modelAndView;
     }
-
+    @PostMapping("${url.patient}"+ "/{login}" + "/patients")
+    public RedirectView addDeletePatients(
+            Authentication authentication,
+            @RequestParam(name = "addUserLogin", required = false) List<String> addUserLoginList,
+            @RequestParam(name = "deleteUserLogin", required = false) List<String> deleteUserLoginList
+    ) throws UserException {
+        String loginDoctor = authentication.getName();
+        if (addUserLoginList != null) {
+            for (String loginPatient : addUserLoginList) {
+                patientDBService.addDoctorToPatient(loginDoctor,loginPatient);
+            }
+        }
+        if (deleteUserLoginList != null) {
+            for (String loginPatient : deleteUserLoginList) {
+                patientDBService.deleteDoctorFromPatient(loginDoctor,loginPatient);
+            }
+        }
+        return new RedirectView("/" + patientUrl + "/" + loginDoctor);
+    }
 
 }
