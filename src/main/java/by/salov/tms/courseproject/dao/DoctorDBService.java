@@ -61,6 +61,8 @@ public class DoctorDBService {
             doctorJpaRepository.save(doctorFromDB);
         }
     }
+
+
     public Map<Long,Patient> getAllPatientsFromDoctor(String userLogin) {
         User userByLogin = userJpaRepository.findUserByLogin(userLogin).orElseThrow(
                 () -> new UsernameNotFoundException("User with login: " + userLogin + " not found")

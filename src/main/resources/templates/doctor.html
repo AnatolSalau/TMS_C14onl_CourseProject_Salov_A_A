@@ -48,23 +48,30 @@
                 </div>
             </div>
             <div class="hello"> All patient in DB</div>
-            <form method="post" th:action="@{/test/crud}" id="userMap">
+            <form method="post" th:action="@{|/doctor/${user.getLogin}/patients|}" id="userMap">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">First name</th>
+                        <th scope="col">Add patient</th>
                         <th scope="col">Delete patient</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="entry: ${allPatientsMap}">
                         <th scope="row" th:text="${entry.key}"></th>
-                        <td th:text="${entry.value}"></td>
+                        <td th:text="${entry.value.getUser.getFirstName}"></td>
                         <td>
                             <input class="form-check-input" type="checkbox" form="userMap"
-                                   th:name="userId"
-                                   th:value="${entry.value.getId}"
+                                   th:name="addUserLogin"
+                                   th:value="${entry.value.getUser.getLogin}"
+                            >
+                        </td>
+                        <td>
+                            <input class="form-check-input" type="checkbox" form="userMap"
+                                   th:name="deleteUserLogin"
+                                   th:value="${entry.value.getUser.getLogin}"
                             >
                         </td>
                     </tr>

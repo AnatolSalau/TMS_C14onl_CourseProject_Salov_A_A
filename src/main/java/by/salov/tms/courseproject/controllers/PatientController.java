@@ -67,7 +67,7 @@ public class PatientController {
         return new RedirectView("/" + userUrl + "/" + login);
     }
     @PostMapping("${url.user}" + "/deletepatient")
-    RedirectView addPatientToUser(
+    RedirectView deletePatientFromToUser(
             Authentication authentication
     ) throws UserException {
         String login = authentication.getName();
@@ -96,7 +96,7 @@ public class PatientController {
 
 
         modelAndView.addObject("user", userByLogin);
-        modelAndView.addObject("allDoctorsMap", allDoctorsFromPatient);
+        modelAndView.addObject("allDoctorsMap", allDoctorsMap);
         modelAndView.addObject("allDoctorsFromPatient", allDoctorsFromPatient);
 
         return modelAndView;
