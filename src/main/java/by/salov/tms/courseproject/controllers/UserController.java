@@ -100,7 +100,7 @@ public class UserController {
     }
 
     @GetMapping("${url.user}" + "/{login}" + "/" + "${url.user_chat}")
-    public ModelAndView GetUserChatTemplate(Authentication authentication) {
+    public ModelAndView getUserChatTemplate(Authentication authentication) {
         String name = authentication.getName();
         User userByLogin = userDBService.findUserByLogin(name);
 
@@ -109,5 +109,15 @@ public class UserController {
         modelAndView.addObject("textAllMessages", textAllMessages);
         modelAndView.addObject("user", userByLogin);
         return modelAndView;
+    }
+
+    @PostMapping("${url.user}" + "/{login}" + "/" + "${url.user_chat}")
+    public RedirectView postUserChatTemplate(Authentication authentication,
+                                             @RequestParam(name = "text")String text,
+                                             @RequestParam(name = "readerLogin")String readerLogin,
+                                             @RequestParam(name = "writerLogin")String writerLogin) {
+        String name = authentication.getName();
+
+        return new RedirectView("${url.user}" + name + "/" + "${url.user_chat}");
     }
 }
