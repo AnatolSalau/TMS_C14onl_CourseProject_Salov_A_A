@@ -1,13 +1,11 @@
 package by.salov.tms.courseproject.controllers;
 
-import by.salov.tms.courseproject.dao.DoctorDBService;
-import by.salov.tms.courseproject.dao.PatientDBService;
-import by.salov.tms.courseproject.dao.UserDBService;
-import by.salov.tms.courseproject.dao.UserRoleDBService;
+import by.salov.tms.courseproject.dao.*;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.AuthoritiesUpdaterService;
 import by.salov.tms.courseproject.services.UrlValidateService;
+import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -20,6 +18,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.List;
 
 @Controller
 @RequestMapping(path = "/")
@@ -42,8 +42,14 @@ public class UserController {
     @Autowired
     private AuthoritiesUpdaterService authoritiesUpdaterService;
 
+    @Autowired
+    private MessagesDBService messagesDBService;
+
     @Value("${html.user}")
     private String userHtml;
+
+    @Value("${html.user_chat}")
+    private String userChatHtml;
 
     @Value("${url.user}")
     private String userUrl;
@@ -91,5 +97,17 @@ public class UserController {
         patientDBService.deletePatientFromUser(login);
         userDBService.deleteUserByLogn(login);
         return new RedirectView("/" + loginUrl);
+    }
+
+    @GetMapping("${url.user}" + "/{login}" + "/" + "${url.user_chat}")
+    public ModelAndView GetUserChatTemplate(Authentication authentication) {
+        String name = authentication.getName();
+        User userByLogin = userDBService.findUserByLogin(name);
+
+        ModelAndView modelAndView = new ModelAndView(userChatHtml);
+        HashMap<String, List<User>> textAllMessages = messagesDBService.getTextAllMessages();
+        modelAndView.addObject("textAllMessages", textAllMessages);
+        modelAndView.addObject("user", userByLogin);
+        return modelAndView;
     }
 }

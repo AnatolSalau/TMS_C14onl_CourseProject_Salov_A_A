@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="23 30 Sunday Worked version">
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="12 49 Monday">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/MessagesDBService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/ReceivedMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/SentMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/ReceivedMessageJPARepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/repositories/SentMessageJPARepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/userchat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/doctor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/doctor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/patient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/url_html.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/url_html.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/TmsC14onlCourseprojectSalovAAApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/TmsC14onlCourseprojectSalovAAApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,9 +144,10 @@
       <recent name="by.salov.tms.courseproject.repositories" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.salov.tms.courseproject.repositories" />
+      <recent name="by.salov.tms.courseproject.entities" />
       <recent name="by.salov.tms.courseproject.controllers" />
       <recent name="by.salov.tms.courseproject.exceptions" />
-      <recent name="by.salov.tms.courseproject.entities" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.TmsC14onlCourseprojectSalovAAApplication">
@@ -146,7 +157,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.addDoctorToPatientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.addMessageToUsertest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -159,7 +170,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.addDoctorToPatientTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.addMessageToUsertest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -169,7 +180,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromPatientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -182,7 +193,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromPatientTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageById&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,7 +203,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deletePatientFromDoctor" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageFromUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -205,7 +216,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deletePatientFromDoctor&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageFromUser&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -215,7 +226,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.saveMessagesTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -228,7 +239,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.saveMessagesTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -270,10 +281,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromPatientTest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addDoctorToPatientTest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deletePatientFromDoctor" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.saveMessagesTest" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addMessageToUsertest" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageFromUser" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageById" />
       </list>
     </recent_temporary>
   </component>
@@ -299,7 +310,7 @@
       <workItem from="1668964483845" duration="3607000" />
       <workItem from="1668968105707" duration="220000" />
       <workItem from="1668968337378" duration="6983000" />
-      <workItem from="1669018786028" duration="4168000" />
+      <workItem from="1669018786028" duration="17780000" />
     </task>
     <task id="LOCAL-00001" summary="Start commit">
       <created>1667565368250</created>
@@ -553,7 +564,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669023285877</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="12 49 Monday">
+      <created>1669024151783</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669024151783</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +609,8 @@
     <MESSAGE value="20 25 Sanday" />
     <MESSAGE value="20 25 Sunday" />
     <MESSAGE value="23 30 Sunday Worked version" />
-    <option name="LAST_COMMIT_MESSAGE" value="23 30 Sunday Worked version" />
+    <MESSAGE value="12 49 Monday" />
+    <option name="LAST_COMMIT_MESSAGE" value="12 49 Monday" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

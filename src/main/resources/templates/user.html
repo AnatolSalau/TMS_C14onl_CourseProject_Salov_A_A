@@ -33,6 +33,11 @@
                     <a class="nav-link disabled">Patient</a>
                 </li>
             </ul>
+            <form th:action="@{|/user/${user.getLogin}/userchat|}" method="get" >
+                <button type="submit" class="btn btn-success">
+                    Chat
+                </button>
+            </form>
             <form th:action="@{/logout}" method="post" id="userAccLogout">
                 <button type="submit" class="btn btn-primary" value="Logout" id="logoutButton">
                     Logout

@@ -4,10 +4,14 @@ import by.salov.tms.courseproject.dao.DoctorDBService;
 import by.salov.tms.courseproject.dao.PatientDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
+import by.salov.tms.courseproject.entities.ReceivedMessage;
+import by.salov.tms.courseproject.entities.SentMessage;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.entities.roles.UserRole;
 import by.salov.tms.courseproject.exceptions.UserException;
+import by.salov.tms.courseproject.repositories.ReceivedMessageJPARepository;
+import by.salov.tms.courseproject.repositories.SentMessageJPARepository;
 import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import by.salov.tms.courseproject.repositories.UserRoleJpaRepository;
 import org.junit.jupiter.api.Test;
@@ -22,6 +26,12 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
 
     @Autowired
     private UserJpaRepository userJpaRepository;
+
+    @Autowired
+    private SentMessageJPARepository sentMessageJPARepository;
+
+    @Autowired
+    private ReceivedMessageJPARepository receivedMessageJPARepository;
 
     @Autowired
     private UserRoleJpaRepository userRoleJpaRepository;
@@ -47,7 +57,7 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
 
     private UserRole userDoctor = new UserRole(Role.ROLE_DOCTOR,userAnatoly);
 
-
+    private SentMessage messageOne = new SentMessage();
     @Test
     public void saveUserTest() {
         userJpaRepository.save(userAnatoly);
@@ -131,5 +141,17 @@ class TmsC14onlCourseprojectSalovAAApplicationTests {
     @Test
     void deletePatientFromDoctor() {
         doctorDBService.deletePatientFromDoctor("anatoly", "vika");
+    }
+
+    @Test
+    void saveMessagesTest() {
+        User reader = userJpaRepository.findUserByLogin("anatoly").orElse(null);
+        SentMessage sentMessage = new SentMessage("FirstMessage", reader);
+
+        User writer = userJpaRepository.findUserByLogin("vika").orElse(null);
+        ReceivedMessage receivedMessage = new ReceivedMessage("FirstMessage", writer);
+
+        sentMessageJPARepository.save(sentMessage);
+        receivedMessageJPARepository.save(receivedMessage);
     }
 }

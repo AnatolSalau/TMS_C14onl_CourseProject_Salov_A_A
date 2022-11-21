@@ -2,13 +2,10 @@ package by.salov.tms.courseproject.entities;
 
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.entities.roles.UserRole;
-import by.salov.tms.courseproject.exceptions.UserException;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -55,6 +52,20 @@ public class User extends People {
 
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Patient patient;
+
+
+    @OneToMany(cascade = CascadeType.ALL,
+    mappedBy = "author",
+    fetch = FetchType.LAZY,
+    orphanRemoval = true)
+    public Set<SentMessage> sentMessagesSet = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "reader",
+            fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    public Set<ReceivedMessage> receivedMessagesSet = new HashSet<>();
+
 
     public User(String firstName, String secondName, String password, String login, HashSet<UserRole> userRoles) {
         super(firstName, secondName);

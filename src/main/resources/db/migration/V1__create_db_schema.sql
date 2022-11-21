@@ -52,3 +52,23 @@ CREATE TABLE IF NOT EXISTS doctors_patients (
                                            CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id),
                                            CONSTRAINT fk_doctor_id FOREIGN KEY(doctor_id) REFERENCES doctors(id)
 );
+
+create table IF NOT EXISTS sent_messages
+(
+    id bigint not null primary key,
+    text varchar(255) not null,
+    author_id bigint constraint fk_author_id references users
+);
+CREATE SEQUENCE IF NOT EXISTS sent_messages_id_seq
+    start 1
+    increment 1;
+
+  create table IF NOT EXISTS received_messages
+(
+    id bigint not null primary key,
+    text varchar(255) not null,
+    reader_id bigint constraint fk_reader_id references users
+);
+CREATE SEQUENCE IF NOT EXISTS received_messages_id_seq
+    start 1
+    increment 1;
