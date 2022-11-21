@@ -1,6 +1,7 @@
 package by.salov.tms.courseproject.controllers;
 
 import by.salov.tms.courseproject.dao.*;
+import by.salov.tms.courseproject.entities.SentMessage;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.AuthoritiesUpdaterService;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/")
@@ -47,6 +49,9 @@ public class UserController {
 
     @Value("${html.user}")
     private String userHtml;
+
+    @Value("${url.user_chat}")
+    private String userChatUrl;
 
     @Value("${html.user_chat}")
     private String userChatHtml;
@@ -103,21 +108,26 @@ public class UserController {
     public ModelAndView getUserChatTemplate(Authentication authentication) {
         String name = authentication.getName();
         User userByLogin = userDBService.findUserByLogin(name);
-
+        Map<Long, User> allUsersMap = userDBService.findAllUsersMap();
         ModelAndView modelAndView = new ModelAndView(userChatHtml);
-        HashMap<String, List<User>> textAllMessages = messagesDBService.getTextAllMessages();
+        Map<SentMessage, User> textAllMessages = messagesDBService.getAllSentMessages();
         modelAndView.addObject("textAllMessages", textAllMessages);
         modelAndView.addObject("user", userByLogin);
+        modelAndView.addObject("allUsersMap", allUsersMap);
         return modelAndView;
     }
 
     @PostMapping("${url.user}" + "/{login}" + "/" + "${url.user_chat}")
     public RedirectView postUserChatTemplate(Authentication authentication,
-                                             @RequestParam(name = "text")String text,
-                                             @RequestParam(name = "readerLogin")String readerLogin,
-                                             @RequestParam(name = "writerLogin")String writerLogin) {
+                                             @RequestParam(name = "text", required = false)String text,
+                                             @RequestParam(name = "readerLogin", required = false)List<String> readerLogins
+                                             ) {
         String name = authentication.getName();
-
-        return new RedirectView("${url.user}" + name + "/" + "${url.user_chat}");
+        if (readerLogins != null) {
+            for (String readerLogin : readerLogins) {
+                messagesDBService.saveMessages(readerLogin,name, text);
+            }
+        }
+        return new RedirectView("/" +userUrl + "/" + name + "/" + userChatUrl);
     }
 }

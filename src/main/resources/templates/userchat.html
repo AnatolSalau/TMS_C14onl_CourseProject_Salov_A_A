@@ -23,18 +23,44 @@
             <thead>
             <tr>
                 <th scope="col">Text</th>
-                <th scope="col">Author</th>
-                <th scope="col">Reader</th>
+                <th scope="col">To</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="entry: ${textAllMessages}">
-                <th scope="row" th:text="${entry.key}"></th>
-                <td th:text="${entry.value[0].getLogin}"></td>
-                <td th:text="${entry.value[1].getLogin}"></td>
+                <th scope="row" th:text="${entry.key.getText}"></th>
+                <td th:text="${entry.value.getFirstName}"></td>
             </tr>
             </tbody>
         </table>
+                <div class="hello h3"> All users</div>
+            <form method="post" th:action="@{|/user/${user.getLogin}/userchat|}" id="userMap">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">First name</th>
+                        <th scope="col">To</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="entry: ${allUsersMap}">
+                        <th scope="row" th:text="${entry.key}"></th>
+                        <td th:text="${entry.value.getLogin}"></td>
+                        <td>
+                            <input class="form-check-input" type="checkbox" form="userMap"
+                                   th:name="readerLogin"
+                                   th:value="${entry.value.getLogin}"
+                            >
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input name="text" type="text" class="form-control">
+                <button type="submit" class="btn btn-success">
+                    Send Message
+                </button>
+            </form>
     </div>
 </body>
 </html>

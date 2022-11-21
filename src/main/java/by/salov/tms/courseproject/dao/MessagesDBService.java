@@ -6,6 +6,7 @@ import by.salov.tms.courseproject.entities.SentMessage;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.repositories.ReceivedMessageJPARepository;
 import by.salov.tms.courseproject.repositories.SentMessageJPARepository;
+import by.salov.tms.courseproject.repositories.UserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,33 +19,25 @@ public class MessagesDBService {
     private SentMessageJPARepository sentMessageJPARepository;
 
     @Autowired
+    private UserJpaRepository userJpaRepository;
+    @Autowired
     private ReceivedMessageJPARepository receivedMessageJPARepository;
 
-    public HashMap <String,List<User>> getTextAllMessages() {
-        HashMap <String,List<User>> result = new HashMap<>();
 
-        Map<String, SentMessage> allSentMessages = getAllSentMessages();
-        allSentMessages.entrySet().forEach( entry -> {
-            User author = entry.getValue().getAuthor();
-            List<User> users = new ArrayList<>();
-            users.add(entry.getValue().getAuthor());
-            result.put(entry.getKey(),users);
-                }
-        );
+    public void saveMessages(String readerLogin, String writerLogin, String text) {
+        User reader = userJpaRepository.findUserByLogin(readerLogin).orElse(null);
+        SentMessage sentMessage = new SentMessage(text, reader);
 
-        Map<String, ReceivedMessage> allReceivedMessages = getAllReceivedMessages();
-        allReceivedMessages.entrySet().forEach( entry -> {
-            List<User> users = result.get(entry.getKey());
-                users.add(entry.getValue().getReader());
-                }
-        );
-        return result;
+        User writer = userJpaRepository.findUserByLogin(writerLogin).orElse(null);
+        ReceivedMessage receivedMessage = new ReceivedMessage(text, writer);
+
+        sentMessageJPARepository.save(sentMessage);
+        receivedMessageJPARepository.save(receivedMessage);
     }
 
-
-    public Map<String, SentMessage>getAllSentMessages() {
+    public Map<SentMessage, User>getAllSentMessages() {
         List<SentMessage> all = sentMessageJPARepository.findAll();
-        Map<String, SentMessage> collect = all.stream().collect(Collectors.toMap(SentMessage::getText, message -> message));
+        Map<SentMessage, User> collect = all.stream().collect(Collectors.toMap(message -> message, message -> message.getAuthor()));
         return collect;
     }
 
