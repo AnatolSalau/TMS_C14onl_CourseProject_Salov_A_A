@@ -38,6 +38,11 @@
                     Logout
                 </button>
             </form>
+            <form th:action="@{|/user/${user.getLogin}/deleteuser|}" method="post">
+                <button type="submit" class="btn btn-danger" value="Logout">
+                    Delete account
+                </button>
+            </form>
 
         </div>
         <div class="card-body">
@@ -80,7 +85,7 @@
                 </form>
             </div>
             <div class="col">
-                <div th:if="${icon != null}">
+                <div th:if="${pic != null}">
                     <img th:src="@{'data:image/png;base64,'+${pic}}">
                 </div>
         </div>

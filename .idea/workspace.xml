@@ -7,7 +7,6 @@
     <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="23 30 Sunday Worked version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_db_schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
@@ -173,29 +172,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.addPatientToDoctorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.addPatientToDoctorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromPatientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -242,6 +218,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -274,10 +273,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest" />
         <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteDoctorFromPatientTest" />
         <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addDoctorToPatientTest" />
         <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deletePatientFromDoctor" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addPatientToDoctorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -302,7 +301,8 @@
       <workItem from="1668958698836" duration="3868000" />
       <workItem from="1668964483845" duration="3607000" />
       <workItem from="1668968105707" duration="220000" />
-      <workItem from="1668968337378" duration="6366000" />
+      <workItem from="1668968337378" duration="6983000" />
+      <workItem from="1669018786028" duration="3202000" />
     </task>
     <task id="LOCAL-00001" summary="Start commit">
       <created>1667565368250</created>
@@ -542,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668976257396</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="23 30 Sunday Worked version">
+      <created>1668979567142</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1668979567142</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,26 +606,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/AuthoritiesUpdaterService.java</url>
           <line>30</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

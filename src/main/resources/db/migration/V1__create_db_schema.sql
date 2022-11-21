@@ -1,4 +1,4 @@
-/*CREATE TABLE IF NOT EXISTS roles (
+CREATE TABLE IF NOT EXISTS roles (
     id BIGINT NOT NULL PRIMARY KEY,
     role VARCHAR(255) NOT NULL
 );
@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS users (
      first_name   varchar(255) NOT NULL,
      second_name  varchar(255) NOT NULL,
      login varchar(255) NOT NULL UNIQUE,
-     password  varchar(255) NOT NULL
+     password  varchar(255) NOT NULL,
+     icon        bytea
 );
 CREATE SEQUENCE IF NOT EXISTS users_id_seq
     start 1
@@ -49,5 +50,5 @@ CREATE TABLE IF NOT EXISTS doctors_patients (
                                            doctor_id BIGINT NOT NULL,
                                            PRIMARY KEY (patient_id,doctor_id),
                                            CONSTRAINT fk_patient_id FOREIGN KEY(patient_id) REFERENCES patients(id),
-                                           CONSTRAINT fk_doctor_id FOREIGN KEY(doctor_id) REFERENCES patients(id)
-);*/
+                                           CONSTRAINT fk_doctor_id FOREIGN KEY(doctor_id) REFERENCES doctors(id)
+);

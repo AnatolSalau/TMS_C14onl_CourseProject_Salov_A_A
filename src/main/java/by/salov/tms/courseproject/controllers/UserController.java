@@ -1,6 +1,7 @@
 package by.salov.tms.courseproject.controllers;
 
 import by.salov.tms.courseproject.dao.DoctorDBService;
+import by.salov.tms.courseproject.dao.PatientDBService;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.dao.UserRoleDBService;
 import by.salov.tms.courseproject.entities.User;
@@ -34,6 +35,8 @@ public class UserController {
     private DoctorDBService doctorDBService;
 
     @Autowired
+    private PatientDBService patientDBService;
+    @Autowired
     private UrlValidateService urlValidateService;
 
     @Autowired
@@ -45,6 +48,8 @@ public class UserController {
     @Value("${url.user}")
     private String userUrl;
 
+    @Value("${url.login}")
+    private String loginUrl;
     @GetMapping("${url.user}" + "/{login}")
     public ModelAndView getUserTemplate(
             @PathVariable String login,
@@ -57,10 +62,8 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView(userHtml);
         User userByLogin = userDBService.findUserByLogin(login);
         byte[] iconBytes = userByLogin.getIcon();
-        User userWithoutIcon = userByLogin;
-        userWithoutIcon.setIcon(new String("icon").getBytes());
 
-        modelAndView.addObject("user", userWithoutIcon);
+        modelAndView.addObject("user", userByLogin);
         if(iconBytes != null) {
             modelAndView.addObject("pic", Base64.getEncoder().encodeToString(iconBytes));
         }
@@ -77,5 +80,16 @@ public class UserController {
         userDBService.addIconToUser(login,icon);
 
         return new RedirectView("/" + userUrl + "/" + login);
+    }
+
+    @PostMapping("${url.user}" + "/{login}" +"/deleteuser")
+    public RedirectView deleteUser(
+            Authentication authentication
+    )  {
+        String login = authentication.getName();
+        doctorDBService.deleteDoctorFromUser(login);
+        patientDBService.deletePatientFromUser(login);
+        userDBService.deleteUserByLogn(login);
+        return new RedirectView("/" + loginUrl);
     }
 }

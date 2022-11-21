@@ -33,6 +33,7 @@ public class User extends People {
     private String password;
 
     @Column(name = "icon")
+    @ToString.Exclude
     private byte[] icon;
     @ManyToMany(
             cascade = {
