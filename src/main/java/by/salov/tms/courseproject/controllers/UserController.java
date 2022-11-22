@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/** Controller for output user template*/
 @Controller
 @RequestMapping(path = "/")
 @PropertySource("classpath:url_html.properties")

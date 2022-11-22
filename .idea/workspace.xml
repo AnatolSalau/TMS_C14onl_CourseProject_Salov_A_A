@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="12 49 Monday">
+    <list default="true" id="d169faea-ddf8-4405-a657-fa17664f8d2a" name="Changes" comment="Delete UserROle test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/BeansSecurityCongiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/BeansSecurityCongiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/DataSourceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/DataSourceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/configurations/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AccessDeniedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AccessDeniedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/CreateAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/LoginLogoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/PatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/DoctorDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/DoctorDBService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/MessagesDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/MessagesDBService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userchat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userchat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/PatientDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/PatientDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserRoleDBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/dao/UserRoleDBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/People.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/People.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/PersistentToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/PersistentToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/entities/roles/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/TmsC14onlCourseprojectSalovAAApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/by/salov/tms/courseproject/TmsC14onlCourseprojectSalovAAApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +44,17 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="tms_c14onl_courseproject_salov_a_a" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -39,8 +65,8 @@
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -90,35 +116,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaDevelop/Projects/TMS_C14onl_CourseProject_Salov_A_A/src/main/resources/templates&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;3d04a36fda0a4da85445bf81cfaa7975&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
-    ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;PostgreSQL&quot;
-    ]
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JavaDevelop\Projects\TMS_C14onl_CourseProject_Salov_A_A\src\main\resources\templates" />
@@ -137,10 +134,8 @@
       <recent name="by.salov.tms.courseproject.repositories" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="by.salov.tms.courseproject.repositories" />
-      <recent name="by.salov.tms.courseproject.entities" />
-      <recent name="by.salov.tms.courseproject.controllers" />
       <recent name="by.salov.tms.courseproject.exceptions" />
+      <recent name="by.salov.tms.courseproject.entities" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.TmsC14onlCourseprojectSalovAAApplication">
@@ -150,7 +145,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.addMessageToUsertest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.addRoleToUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -163,7 +158,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.addMessageToUsertest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.addRoleToUserTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -173,7 +168,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleByRoleNameTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -186,7 +181,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageById&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleByRoleNameTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -196,7 +191,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageFromUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -209,7 +204,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageFromUser&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -219,7 +214,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.saveMessagesTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -232,7 +227,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.saveMessagesTest&quot;" />
+            <option value="&quot;by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -251,13 +246,13 @@
     </configuration>
     <configuration name="TmsC14onlCourseprojectSalovAAApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="tms_c14onl_courseproject_salov_a_a.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="by.salov.tms.courseproject.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="by.salov.tms.courseproject.TmsC14onlCourseprojectSalovAAApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -274,10 +269,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.TmsC14onlCourseprojectSalovAAApplication" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.saveMessagesTest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addMessageToUsertest" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageFromUser" />
-        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteMessageById" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserByLoginTest" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteUserTest" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.deleteRoleByRoleNameTest" />
+        <item itemvalue="Gradle.TmsC14onlCourseprojectSalovAAApplicationTests.addRoleToUserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -293,17 +288,7 @@
       <workItem from="1667576695669" duration="2129000" />
       <workItem from="1667741357052" duration="10709000" />
       <workItem from="1667833823282" duration="11034000" />
-      <workItem from="1668765932278" duration="9920000" />
-      <workItem from="1668842638268" duration="27952000" />
-      <workItem from="1668879476388" duration="813000" />
-      <workItem from="1668937710521" duration="15239000" />
-      <workItem from="1668957756965" duration="49000" />
-      <workItem from="1668957814788" duration="871000" />
-      <workItem from="1668958698836" duration="3868000" />
-      <workItem from="1668964483845" duration="3607000" />
-      <workItem from="1668968105707" duration="220000" />
-      <workItem from="1668968337378" duration="6983000" />
-      <workItem from="1669018786028" duration="29598000" />
+      <workItem from="1668765932278" duration="14863000" />
     </task>
     <task id="LOCAL-00001" summary="Start commit">
       <created>1667565368250</created>
@@ -417,168 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668711546036</updated>
     </task>
-    <task id="LOCAL-00017" summary="20 10 Saturday">
-      <created>1668803381682</created>
+    <task id="LOCAL-00017" summary="UserRoleDBService.java">
+      <created>1668777414599</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1668803381682</updated>
+      <updated>1668777414599</updated>
     </task>
-    <task id="LOCAL-00018" summary="23 39 Suturday">
-      <created>1668803969577</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1668803969577</updated>
-    </task>
-    <task id="LOCAL-00019" summary="23 49 Suturday">
-      <created>1668804557658</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1668804557658</updated>
-    </task>
-    <task id="LOCAL-00020" summary="23 49 Suturday">
-      <created>1668804854723</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1668804854723</updated>
-    </task>
-    <task id="LOCAL-00021" summary="23 49 Suturday">
-      <created>1668806226655</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1668806226655</updated>
-    </task>
-    <task id="LOCAL-00022" summary="15 58 worked version">
-      <created>1668862738035</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1668862738035</updated>
-    </task>
-    <task id="LOCAL-00023" summary="15 58 worked version">
-      <created>1668868929167</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1668868929167</updated>
-    </task>
-    <task id="LOCAL-00024" summary="20 36 Saturday worked">
-      <created>1668879430108</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1668879430108</updated>
-    </task>
-    <task id="LOCAL-00025" summary="14 12 Sanday">
-      <created>1668942749178</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1668942749178</updated>
-    </task>
-    <task id="LOCAL-00026" summary="14 12 Sanday">
-      <created>1668947853764</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1668947853764</updated>
-    </task>
-    <task id="LOCAL-00027" summary="14 12 Sanday">
-      <created>1668956854971</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1668956854971</updated>
-    </task>
-    <task id="LOCAL-00028" summary="18 22 Sanday">
-      <created>1668957740319</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1668957740319</updated>
-    </task>
-    <task id="LOCAL-00029" summary="18 22 Sanday">
-      <created>1668958682888</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1668958682888</updated>
-    </task>
-    <task id="LOCAL-00030" summary="18 22 Sanday">
-      <created>1668962564179</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1668962564179</updated>
-    </task>
-    <task id="LOCAL-00031" summary="20 25 Sunday">
-      <created>1668965172909</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1668965172909</updated>
-    </task>
-    <task id="LOCAL-00032" summary="20 25 Sunday">
-      <created>1668967346329</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1668967346329</updated>
-    </task>
-    <task id="LOCAL-00033" summary="20 25 Sunday">
-      <created>1668970064793</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1668970064793</updated>
-    </task>
-    <task id="LOCAL-00034" summary="23 30 Sunday Worked version">
-      <created>1668976257396</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1668976257396</updated>
-    </task>
-    <task id="LOCAL-00035" summary="23 30 Sunday Worked version">
-      <created>1668979567142</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1668979567142</updated>
-    </task>
-    <task id="LOCAL-00036" summary="23 30 Sunday Worked version">
-      <created>1669023285877</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1669023285877</updated>
-    </task>
-    <task id="LOCAL-00037" summary="12 49 Monday">
-      <created>1669024151783</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1669024151783</updated>
-    </task>
-    <task id="LOCAL-00038" summary="12 49 Monday">
-      <created>1669038253015</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1669038253015</updated>
-    </task>
-    <task id="LOCAL-00039" summary="12 49 Monday">
-      <created>1669038869264</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1669038869264</updated>
-    </task>
-    <option name="localTasksCounter" value="40" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,37 +438,7 @@
     <MESSAGE value="delete Doctor" />
     <MESSAGE value="Save User Account" />
     <MESSAGE value="Add doctor" />
-    <MESSAGE value="23 39 Suturday" />
-    <MESSAGE value="23 49 Suturday" />
-    <MESSAGE value="15 58 worked version" />
-    <MESSAGE value="20 36 Saturday worked" />
-    <MESSAGE value="14 12 Sanday" />
-    <MESSAGE value="18 22 Sanday" />
-    <MESSAGE value="20 25 Sanday" />
-    <MESSAGE value="20 25 Sunday" />
-    <MESSAGE value="23 30 Sunday Worked version" />
-    <MESSAGE value="12 49 Monday" />
-    <option name="LAST_COMMIT_MESSAGE" value="12 49 Monday" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/AuthoritiesUpdaterService.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/AuthoritiesUpdaterService.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/salov/tms/courseproject/services/AuthoritiesUpdaterService.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="UserRoleDBService.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserRoleDBService.java" />
   </component>
 </project>

@@ -16,6 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**Service for CRUD operations on Doctor entity */
 @Service
 public class DoctorDBService {
 

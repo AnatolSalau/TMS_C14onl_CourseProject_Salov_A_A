@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/** Service for CRUD operations on Message entity*/
 @Service
 public class MessagesDBService {
     @Autowired

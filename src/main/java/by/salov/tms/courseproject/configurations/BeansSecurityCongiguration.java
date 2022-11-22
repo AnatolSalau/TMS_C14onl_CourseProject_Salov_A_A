@@ -12,9 +12,12 @@ import javax.sql.DataSource;
 @Configuration
 public class BeansSecurityCongiguration {
 
+    /**Get Data sourse bean*/
     @Autowired
     private DataSource dataSource;
 
+    /**Create PersistentTokenRepository - repository for saving validation token
+     * in DB */
     @Bean(name = "persistentTokenRepository")
     public PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
@@ -22,7 +25,7 @@ public class BeansSecurityCongiguration {
         tokenRepository.setDataSource(dataSource);
         return tokenRepository;
     }
-
+    /**Create BCryptPasswordEncoder for encoding passwords */
     @Bean(name = "bCryptPasswordEncoder")
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();

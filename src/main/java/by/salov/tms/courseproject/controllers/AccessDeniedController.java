@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+/** Controller for showing errors from Access denied handler in spring security*/
 @Controller
 @RequestMapping("/")
 @PropertySource("classpath:url_html.properties")
@@ -28,6 +28,7 @@ public class AccessDeniedController {
 
     @GetMapping("${url.access_denied}")
     public ModelAndView getAccessDeniedTemplate(HttpServletRequest httpServletRequest) {
+        /** Get attributes that we put in it, in Access denied handler*/
         String accessDenied = (String)httpServletRequest
                 .getSession().getAttribute(accessDeniedHandlerImpl.getACCESS_DENIED_ATTRIBUTE_NAME());
         String accessDeniedUri = (String)httpServletRequest

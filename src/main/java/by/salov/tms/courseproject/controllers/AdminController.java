@@ -26,6 +26,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
+
+/** Controller for showing admin template*/
 @Controller
 @RequestMapping(path = "/")
 @PropertySource("classpath:url_html.properties")

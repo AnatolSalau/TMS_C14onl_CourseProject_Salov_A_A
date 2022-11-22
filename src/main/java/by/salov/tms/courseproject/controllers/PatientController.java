@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
+/**Controller for output Patient template */
 @Controller
 @RequestMapping(path = "/")
 @PropertySource("classpath:url_html.properties")

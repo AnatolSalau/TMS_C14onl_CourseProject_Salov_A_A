@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**UserRole entity for roles in SpringSecurity */
 @NoArgsConstructor
 @Getter
 @Setter

@@ -3,7 +3,6 @@ package by.salov.tms.courseproject.controllers;
 import by.salov.tms.courseproject.dao.UserDBService;
 import by.salov.tms.courseproject.entities.User;
 import by.salov.tms.courseproject.entities.roles.Role;
-import by.salov.tms.courseproject.entities.roles.UserRole;
 import by.salov.tms.courseproject.exceptions.UserException;
 import by.salov.tms.courseproject.services.UserValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
+/**Controller for output create account template */
 @Controller
 @RequestMapping(path = "/")
 @PropertySource("classpath:url_html.properties")

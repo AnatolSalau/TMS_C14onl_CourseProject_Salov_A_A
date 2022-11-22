@@ -23,7 +23,6 @@ import java.util.Set;
 @SpringBootTest
 class TmsC14onlCourseprojectSalovAAApplicationTests {
 
-
     @Autowired
     private UserJpaRepository userJpaRepository;
 

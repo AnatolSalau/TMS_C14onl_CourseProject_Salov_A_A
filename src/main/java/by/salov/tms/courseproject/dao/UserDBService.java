@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/** Service for CRUD operations on User entity */
 @Service
 public class UserDBService  {
     @Autowired

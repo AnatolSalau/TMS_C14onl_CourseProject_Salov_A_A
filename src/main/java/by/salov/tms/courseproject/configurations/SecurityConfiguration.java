@@ -6,7 +6,6 @@ import by.salov.tms.courseproject.handlers.AuthenticationSuccessHandlerImpl;
 import by.salov.tms.courseproject.services.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -14,10 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
-
-import javax.sql.DataSource;
 
 @EnableWebSecurity()
 @EnableGlobalMethodSecurity(
@@ -25,6 +21,7 @@ import javax.sql.DataSource;
         securedEnabled = true,
         jsr250Enabled = true
 )
+/** load values from url_html.properties file*/
 @PropertySource("classpath:url_html.properties")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -47,18 +44,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Value("${url.create_account}")
     private String createAccountUrl;
 
+    /** Load Handler for handling "access denied" in Spring Security*/
     @Autowired
     private AccessDeniedHandlerImpl accessDeniedHandlerImpl;
 
+    /** Load service for generating SpringSecurity UserDetails class*/
     @Autowired
     private UserDetailServiceImpl userDetailServiceImpl;
 
+    /** Load Handler for handling success enter in Spring Security*/
     @Autowired
     private AuthenticationSuccessHandlerImpl authenticationSuccessHandlerImpl;
 
+    /** Load bean for saving token in DB*/
     @Autowired
     PersistentTokenRepository persistentTokenRepository;
 
+    /** load in authentication our beans for UserDetails and PasswordEncoder*/
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -66,18 +68,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
+    /** setting spring security*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/" + adminUrl + "/**","/" + testControllerUrl + "/**")
+                .antMatchers("/" + adminUrl + "/**","/" + testControllerUrl + "/**")//first indicate the narrowest urls
                 .hasRole(Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + doctorUrl + "/**")
                 .hasAnyRole(Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + patientUrl + "/**")
                 .hasAnyRole(Role.ROLE_PATIENT.getRoleName(), Role.ROLE_ADMIN.getRoleName())
                 .antMatchers("/" + userUrl + "/**")
-                .hasAnyRole(Role.ROLE_USER.getRoleName(), Role.ROLE_PATIENT.getRoleName(), Role.ROLE_DOCTOR.getRoleName(), Role.ROLE_ADMIN.getRoleName())
+                .hasAnyRole(Role.ROLE_USER.getRoleName(),
+                        Role.ROLE_PATIENT.getRoleName(), Role.ROLE_DOCTOR.getRoleName(),
+                        Role.ROLE_ADMIN.getRoleName())//first indicate the common urls
                 .antMatchers("/**", createAccountUrl)
                 .permitAll()
                 .and()
@@ -85,7 +90,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .loginPage("/" + loginUrl)
                 .loginProcessingUrl("/" + performLoginUrl)
-                .usernameParameter("username")
+                .usernameParameter("username")//parameters name from html
                 .passwordParameter("password")
                 .defaultSuccessUrl("/")
                 .successHandler(authenticationSuccessHandlerImpl)

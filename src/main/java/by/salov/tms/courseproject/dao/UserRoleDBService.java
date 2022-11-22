@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.Set;
 
+/**Controller for CRUD operations on UserRole entity*/
 @Service
 public class UserRoleDBService {
 
