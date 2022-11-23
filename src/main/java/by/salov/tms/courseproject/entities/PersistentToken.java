@@ -6,6 +6,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.util.Date;
 
+/**Entity for creating table for saving in BD token from SpringSecurity */
+/**Saving  so we can stop the server */
 @NoArgsConstructor
 @Getter
 @Setter

@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+/** Abstract super class for all others entities */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

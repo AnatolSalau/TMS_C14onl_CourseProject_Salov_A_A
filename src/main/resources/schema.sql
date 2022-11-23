@@ -1,4 +1,4 @@
-/*CREATE TABLE IF NOT EXISTS user_role (
+/*CREATE TABLE IF NOT EXISTS roles (
                                          id BIGINT NOT NULL PRIMARY KEY,
                                          role VARCHAR(255) NOT NULL
 );
@@ -21,4 +21,10 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE SEQUENCE IF NOT EXISTS users_id_seq
     start 1
-    increment 1;*/
+    increment 1;
+
+CREATE TABLE IF NOT EXISTS users_roles (
+    role_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    primary key (role_id,user_id)
+);*/

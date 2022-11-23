@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfiguration {
 
+    /** Load values from application.properies file */
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassNameProp;
 
@@ -22,6 +23,7 @@ public class DataSourceConfiguration {
     @Value("${spring.datasource.password}")
     private String passwordProp;
 
+    /** Generating DataSource for connection to DB */
     @Bean(name = "dataSource")
     public DataSource dataSource() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();

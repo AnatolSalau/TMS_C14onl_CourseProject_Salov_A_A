@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * SpringDataJPA repository for getting UserJpa entity */
 @Transactional
 public interface UserJpaRepository extends JpaRepository<User,Long> {
 
@@ -16,5 +18,8 @@ public interface UserJpaRepository extends JpaRepository<User,Long> {
 
     List<User> findAll();
 
+
     void deleteUserById(Long id);
+
+    void deleteUserByLogin(String login);
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/** Controller for output Login and Logout template of Spring Security*/
 @Controller
 @RequestMapping(path = "/")
 @PropertySource("classpath:url_html.properties")

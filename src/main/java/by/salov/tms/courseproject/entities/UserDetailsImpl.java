@@ -1,6 +1,9 @@
 package by.salov.tms.courseproject.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.mapping.Array;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,21 +15,22 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/** Implementaion of UserDetails class from SpringSecurity
+ * for generating SecurityUser from our User  */
 @Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 public class UserDetailsImpl implements UserDetails {
 
-    private String login;
-    private String password;
-    private List<String> userRoleNames;
+    private final String login;
+    private final String password;
+    private final List<String> userRoleNames;
 
-    public UserDetailsImpl(String login, String password, String... userRoleNames) {
+    public UserDetailsImpl(String login, String password, List<String> userRoleNames) {
         this.login = login;
         this.password = password;
-        this.userRoleNames = new ArrayList<>();
-        Arrays.stream(userRoleNames)
-                .forEach(userRoleName -> {
-                    this.userRoleNames.add(userRoleName);
-                });
+        this.userRoleNames = userRoleNames;
     }
 
     @Override

@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.invalidUsernamePassword {
+    color: red;
+}
+.card {
+    background-color: lightcyan;
+}
+.card-header {
+    display: flex;
+    padding-bottom: 2px;
+}
+#userAccLogout {
+    margin-left: 400px;
+}
+#accountCard {
+    background-color: white;
+}
