@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
 
+/**
+ * SpringDataJPA repository for getting UserRole entity */
 @Transactional
 public interface UserRoleJpaRepository extends JpaRepository<UserRole,Long> {
     void deleteUserRoleById(Long id);

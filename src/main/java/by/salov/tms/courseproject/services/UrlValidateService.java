@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+/**Service for validating login path-variable with login in spring security token */
 @Service
 public class UrlValidateService {
 

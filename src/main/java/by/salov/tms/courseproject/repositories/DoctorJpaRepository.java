@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * SpringDataJPA repository for getting Doctor entity */
+
 @Transactional
 public interface DoctorJpaRepository extends JpaRepository<Doctor,Long> {
     void deleteDoctorById(Long id);

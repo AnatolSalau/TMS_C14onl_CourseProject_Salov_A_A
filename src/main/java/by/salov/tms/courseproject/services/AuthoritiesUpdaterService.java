@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**Service for update roles in spring token -
+ * removing and adding the necessary roles in SpringSecurity authentication token */
 @Service
 public class AuthoritiesUpdaterService {
 

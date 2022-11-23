@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**Entity for received messages */
 @NoArgsConstructor
 @Getter
 @Setter

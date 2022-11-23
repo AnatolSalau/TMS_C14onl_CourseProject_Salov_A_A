@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * SpringDataJPA repository for getting ReceivedMessage entity */
 @Transactional
 public interface ReceivedMessageJPARepository extends JpaRepository<ReceivedMessage,Long> {
 

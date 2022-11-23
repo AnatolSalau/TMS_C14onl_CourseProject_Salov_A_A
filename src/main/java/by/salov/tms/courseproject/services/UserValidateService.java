@@ -5,6 +5,7 @@ import by.salov.tms.courseproject.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**Service for validation User by  login */
 @Service
 public class UserValidateService {
     @Autowired

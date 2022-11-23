@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**Implementation UserDetailsService from SpringSecurity
+ * for generating UserDetails from our User */
 @RequiredArgsConstructor
 
 @Service

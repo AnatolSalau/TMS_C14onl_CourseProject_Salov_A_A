@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**Entity for User */
 @NoArgsConstructor
 @Getter
 @Setter

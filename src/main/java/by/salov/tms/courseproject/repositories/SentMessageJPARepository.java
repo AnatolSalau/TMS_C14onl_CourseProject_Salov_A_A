@@ -7,6 +7,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * SpringDataJPA repository for getting SentMessage entity */
 @Transactional
 public interface SentMessageJPARepository extends JpaRepository<SentMessage,Long> {
 

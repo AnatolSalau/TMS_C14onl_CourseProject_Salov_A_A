@@ -16,6 +16,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Implementation AuthenticationSuccessHandler from SpringSecurity
+ * to redirect on login based on role */
 @Component
 @PropertySource("classpath:url_html.properties")
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler {

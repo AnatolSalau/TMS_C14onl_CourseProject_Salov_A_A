@@ -15,6 +15,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/** Implementaion of UserDetails class from SpringSecurity
+ * for generating SecurityUser from our User  */
 @Getter
 @Setter
 @EqualsAndHashCode
