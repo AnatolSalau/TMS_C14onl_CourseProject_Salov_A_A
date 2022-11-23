@@ -2,12 +2,13 @@ package by.salov.tms.courseproject.entities;
 
 import by.salov.tms.courseproject.entities.roles.Role;
 import by.salov.tms.courseproject.entities.roles.UserRole;
-import by.salov.tms.courseproject.exceptions.UserException;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+/**Entity for User */
 @NoArgsConstructor
 @Getter
 @Setter
@@ -18,34 +19,72 @@ import java.util.List;
 @Table(name = "users")
 @SequenceGenerator(sequenceName = "users_id_seq",
         name = "users_id_seq", allocationSize = 1)
-public  class User extends People{
+public class User extends People {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_id_seq")
     @Column(nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String login;
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "user_role_id", foreignKey = @ForeignKey(name = "fk_user_role_id"))
-    private UserRole userRole;
-
+    @Column(name = "icon")
     @ToString.Exclude
+    private byte[] icon;
+    @ManyToMany(
+            cascade = {
+                    CascadeType.ALL
+            },
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "users_roles",
+            inverseJoinColumns = @JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "fk_role_id"), referencedColumnName = "id") ,
+            joinColumns = @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_user_id"), referencedColumnName = "id")
+    )
+    private Set<UserRole> userRoles = new HashSet<>();
+
+
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Doctor doctor;
 
-    @ToString.Exclude
+
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Patient patient;
 
-    public User(String firstName, String secondName, String password, UserRole userRole) {
+
+    @OneToMany(cascade = CascadeType.ALL,
+    mappedBy = "author",
+    fetch = FetchType.LAZY,
+    orphanRemoval = true)
+    public Set<SentMessage> sentMessagesSet = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "reader",
+            fetch = FetchType.LAZY,
+            orphanRemoval = true)
+    public Set<ReceivedMessage> receivedMessagesSet = new HashSet<>();
+
+
+    public User(String firstName, String secondName, String password, String login, HashSet<UserRole> userRoles) {
         super(firstName, secondName);
-        this.userRole = userRole;
+        this.userRoles = userRoles;
         this.password = password;
+        this.login = login;
     }
 
+    public User(String firstName, String secondName, String password, String login, Role role) {
+        super(firstName, secondName);
+        this.userRoles.add(new UserRole(role));
+        this.password = password;
+        this.login = login;
+    }
+    public User(String firstName, String secondName, String password, String login, UserRole userRole) {
+        super(firstName, secondName);
+        this.userRoles.add(userRole);
+        this.password = password;
+        this.login = login;
+    }
 }
